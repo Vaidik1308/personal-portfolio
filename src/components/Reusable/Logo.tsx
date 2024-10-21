@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-import BoyIcon from '../../../../public/3d_boy.png'
+import BoyIcon from '../../../public/3d_boy.png'
 
 const Logo = () => {
   return (

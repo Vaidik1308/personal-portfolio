@@ -4,10 +4,10 @@ import Wrapper from '../Reusable/Wrapper'
 import Image from 'next/image'
 
 // import ProfilePic from '../../../../public/profilePic.jpg'
-import ProfilePic from '../../../../public/banner_charater.png'
+import ProfilePic from '../../../public/banner_charater.png'
 import Link from 'next/link'
 import { BiLogoGmail } from 'react-icons/bi'
-import { FaGithub, FaLinkedin, FaLinkedinIn } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import { FaSquareXTwitter } from 'react-icons/fa6'
 import {motion } from 'framer-motion'
 import LetterAnimation from '../Reusable/LetterAnimation'
@@ -18,8 +18,8 @@ const HeroSection = () => {
     <section>
         <Wrapper className='md:w-[80%] mx-auto flex md:flex-row flex-col relative px-8'>
             <div className='  md:w-[90%] flex justify-center items-start  h-[70vh] flex-col'>
-                <div className='md:w-[60%] mx-auto flex flex-col gap-5 justify-center w-full'>
-                    <h1 className='flex flex-col text-4xl md:text-7xl w-[90%] leading-[2rem] md:leading-[4rem]'>
+                <div className='md:w-[70%] mx-auto flex flex-col gap-5 justify-center w-full'>
+                    <h1 className='flex flex-col text-4xl md:text-7xl w-[90%] md:w-[100%] leading-[2rem] md:leading-[4rem]'>
                         <span>Hi</span>
                         {/* <span>I'm Vaidik</span> */}
                         <div className='flex flex-wrap  items-end'>
