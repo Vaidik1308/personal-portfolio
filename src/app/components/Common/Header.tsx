@@ -32,7 +32,7 @@ const Header = () => {
     <header className='w-full border-gray-800 border-b'>
         <Wrapper className='flex  justify-center md:justify-start gap-32 items-center'>
             <Logo/>
-            <ul className=' hidden md:lex gap-6 font-[500] items-center relative'>
+            <ul className=' hidden md:flex gap-6 font-[500] items-center relative'>
                 
                 <Navigation/>
             </ul>
