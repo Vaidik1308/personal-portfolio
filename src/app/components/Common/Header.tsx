@@ -2,21 +2,39 @@ import React from 'react'
 import Wrapper from '../Reusable/Wrapper'
 import Logo from '../Reusable/Logo'
 import Link from 'next/link'
+import Navigation from '../partials/navigation/Navigation'
 
 
 const Header = () => {
+  const navigationData = [
+    {
+      label:"Home",
+      path:"/"
+    },
+    {
+      label:"About Me",
+      path:"#about"
+    },
+    {
+      label:"Projects",
+      path:"#projects"
+    },
+    {
+      label:"Experience",
+      path:"#experience"
+    },
+    {
+      label:"contact",
+      path:"#contact"
+    },
+  ]
   return (
     <header className='w-full border-gray-800 border-b'>
-        <Wrapper className='flex justify-between items-center'>
+        <Wrapper className='flex  justify-center md:justify-start gap-32 items-center'>
             <Logo/>
-            <ul>
-                <li className='flex gap-6 font-[500] items-center'>
-                    <Link className='hover:text-gray-500 duration-200' href={"/"}>Home</Link>
-                    <Link className='hover:text-gray-500 duration-200' href={"/"}>About Me</Link>
-                    <Link className='hover:text-gray-500 duration-200' href={"/"}>Projects</Link>
-                    <Link className='hover:text-gray-500 duration-200' href={"/"}>Experience</Link>
-                    <Link className='hover:text-gray-500 duration-200' href={"/"}>Contact Me</Link>
-                </li>
+            <ul className=' hidden md:lex gap-6 font-[500] items-center relative'>
+                
+                <Navigation/>
             </ul>
         </Wrapper>
     </header>
