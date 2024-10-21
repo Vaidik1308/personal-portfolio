@@ -1,33 +1,10 @@
 import React from 'react'
 import Wrapper from '../Reusable/Wrapper'
 import Logo from '../Reusable/Logo'
-import Link from 'next/link'
 import Navigation from '../partials/navigation/Navigation'
 
 
 const Header = () => {
-  const navigationData = [
-    {
-      label:"Home",
-      path:"/"
-    },
-    {
-      label:"About Me",
-      path:"#about"
-    },
-    {
-      label:"Projects",
-      path:"#projects"
-    },
-    {
-      label:"Experience",
-      path:"#experience"
-    },
-    {
-      label:"contact",
-      path:"#contact"
-    },
-  ]
   return (
     <header className='w-full border-gray-800 border-b'>
         <Wrapper className='flex  justify-center md:justify-start gap-32 items-center'>
