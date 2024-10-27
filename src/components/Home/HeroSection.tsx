@@ -20,30 +20,15 @@ const HeroSection = () => {
             <div className='  md:w-[90%] flex justify-center items-start  md:h-[70vh] flex-col'>
                 <div className='md:w-[70%] mx-auto flex flex-col gap-5 justify-center w-full'>
                     <h1 className=' flex-col text-7xl md:text-7xl w-[90%] md:w-[100%] leading-[4rem] md:flex hidden'>
-                        <span>Hi</span>
+                        <span>Hi👋!</span>
                         {/* <span>I'm Vaidik</span> */}
                         <div className='flex flex-wrap  items-end mt-2 md:mt-0'>
                           <span className='  flex items-end md:mb-0 mb-2'>
                             I'm a  
                           </span>
                           <div className='font-Playwrite font-[900] w-fit'>
-                            <LetterAnimation text='Frontend' /> 
-                          </div>  
-                          <motion.div 
-                            initial={{
-                              x:100
-                            }}
-                            animate={{
-                              x:-15,
-                            }} 
-                            transition={{
-                              type:"spring",
-                              delay:1
-                            }}
-                            className='font-Playwrite font-[900] w-fit'>
-                            {/* <LetterAnimation text='Frontend' />  */}
-                            <LetterAnimation text='Developer'/>
-                          </motion.div>  
+                            <LetterAnimation text='Vaidik' /> 
+                          </div>   
                         </div>
                     </h1>
                     <h1 className=' flex-col text-7xl w-[100%] leading-[4rem] flex md:hidden'>
@@ -73,6 +58,7 @@ const HeroSection = () => {
                           </motion.div>  
                         </div>
                     </h1>
+                    <span>Frontend Software Engineer <span className='bg-gray-700 py-1 p-1 rounded-sm'>Crafting Seamless User Experience</span> </span>
                     <motion.div 
                       className='grid grid-cols-4 md:mt-0 mt-4 items-center gap-4 text-3xl mx-auto md:mx-0 w-fit  inset-4 px-5 py-3 rounded-lg bg-gray-800' 
                       initial={{ scale: 0 }}

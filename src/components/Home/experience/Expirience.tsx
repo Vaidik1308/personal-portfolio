@@ -1,10 +1,20 @@
+import Container from '@/components/Reusable/Container'
+import Wrapper from '@/components/Reusable/Wrapper'
 import React from 'react'
+import ExperienceTimeline from './ExperienceTimeline'
 
 type Props = {}
 
 const Experience = (props: Props) => {
   return (
-    <div>Experience</div>
+    <section>
+      <Container className='text-white'>
+        <h2>Experience.</h2>
+        <div>
+          <ExperienceTimeline/>
+        </div>
+      </Container>
+    </section>
   )
 }
 
