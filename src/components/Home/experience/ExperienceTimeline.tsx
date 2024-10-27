@@ -10,9 +10,9 @@ const ExperienceTimeline = (props: Props) => {
         <ol className='flex flex-col gap-10'>
             <div className='border-l-[2px] border-white px-4'>
                 <div className='w-full flex flex-col '>
-                    <div className='w-full flex items-center justify-between'>
+                    <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
-                            <h4 className='text-xl leading-3 flex items-center gap-2'>
+                            <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
                                 Frontend UI Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
@@ -30,7 +30,7 @@ const ExperienceTimeline = (props: Props) => {
                                 <span className='bg-gray-300 text-black px-2 py-[2px] rounded-sm text-xs'>remote</span>
                             </div>
                         </div>
-                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-4 text-sm'>
+                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
                             <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
                                 <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
@@ -70,10 +70,10 @@ const ExperienceTimeline = (props: Props) => {
             </div>
             <div className='border-l-[2px] border-white px-4'>
                 <div className='w-full flex flex-col '>
-                    <div className='w-full flex items-center justify-between'>
+                <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
-                            <h4 className='text-xl leading-3 flex items-center gap-2'>
-                                Frontend Developer
+                            <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
+                                Frontend UI Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
                             <div className="flex text-gray-400 items-center gap-1 text-[0.85rem]">
@@ -90,7 +90,7 @@ const ExperienceTimeline = (props: Props) => {
                                 <span className='bg-gray-300 text-black px-2 py-[2px] rounded-sm text-xs'>remote</span>
                             </div>
                         </div>
-                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-4 text-sm'>
+                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
                             <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
                                 <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
@@ -130,19 +130,19 @@ const ExperienceTimeline = (props: Props) => {
             </div>
             <div className='border-l-[2px] border-white px-4'>
                 <div className='w-full flex flex-col '>
-                    <div className='w-full flex items-center justify-between'>
+                <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
-                            <h4 className='text-xl leading-3 flex items-center gap-2'>
-                                Frontend Developer
+                            <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
+                                Frontend UI Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
                             <div className="flex text-gray-400 items-center gap-1 text-[0.85rem]">
                                 <span>
-                                    Apr, 2024
+                                    Oct, 2024
                                 </span>
                                 <span>-</span>
                                 <span>
-                                    Aug 2024 
+                                    Present 
                                 </span>
                             </div>
                             <div className='flex flex-col items-start gap-1'>
@@ -150,10 +150,10 @@ const ExperienceTimeline = (props: Props) => {
                                 <span className='bg-gray-300 text-black px-2 py-[2px] rounded-sm text-xs'>remote</span>
                             </div>
                         </div>
-                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-4 text-sm'>
+                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
                             <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
-                                <span className='group-hover:text-gray-500 duration-200'>ShopIQ</span>
+                                <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
                                 <MoveUpRight className='group-hover:rotate-45 duration-300' size={16}/>
                             </a>
                         </div>
@@ -184,9 +184,9 @@ const ExperienceTimeline = (props: Props) => {
             </div>
             <div className='border-l-[2px] border-white px-4'>
                 <div className='w-full flex flex-col '>
-                    <div className='w-full flex items-center justify-between'>
+                <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
-                            <h4 className='text-xl leading-3 flex items-center gap-2'>
+                            <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
                                 Frontend UI Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
@@ -204,7 +204,7 @@ const ExperienceTimeline = (props: Props) => {
                                 <span className='bg-gray-300 text-black px-2 py-[2px] rounded-sm text-xs'>remote</span>
                             </div>
                         </div>
-                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-4 text-sm'>
+                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
                             <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
                                 <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
@@ -244,9 +244,9 @@ const ExperienceTimeline = (props: Props) => {
             </div>
             <div className='border-l-[2px] border-white px-4'>
                 <div className='w-full flex flex-col '>
-                    <div className='w-full flex items-center justify-between'>
+                <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
-                            <h4 className='text-xl leading-3 flex items-center gap-2'>
+                            <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
                                 Frontend UI Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
@@ -264,7 +264,7 @@ const ExperienceTimeline = (props: Props) => {
                                 <span className='bg-gray-300 text-black px-2 py-[2px] rounded-sm text-xs'>remote</span>
                             </div>
                         </div>
-                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-4 text-sm'>
+                        <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
                             <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
                                 <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
