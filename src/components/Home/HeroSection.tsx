@@ -17,12 +17,12 @@ const HeroSection = () => {
   return (
     <section>
         <Wrapper className='md:w-[80%] mx-auto flex md:flex-row flex-col relative px-8'>
-            <div className='  md:w-[90%] flex justify-center items-start  h-[70vh] flex-col'>
+            <div className='  md:w-[90%] flex justify-center items-start  md:h-[70vh] flex-col'>
                 <div className='md:w-[70%] mx-auto flex flex-col gap-5 justify-center w-full'>
-                    <h1 className='flex flex-col text-4xl md:text-7xl w-[90%] md:w-[100%] leading-[2rem] md:leading-[4rem]'>
+                    <h1 className=' flex-col text-7xl md:text-7xl w-[90%] md:w-[100%] leading-[4rem] md:flex hidden'>
                         <span>Hi</span>
                         {/* <span>I'm Vaidik</span> */}
-                        <div className='flex flex-wrap  items-end'>
+                        <div className='flex flex-wrap  items-end mt-2 md:mt-0'>
                           <span className='  flex items-end md:mb-0 mb-2'>
                             I'm a  
                           </span>
@@ -46,8 +46,35 @@ const HeroSection = () => {
                           </motion.div>  
                         </div>
                     </h1>
+                    <h1 className=' flex-col text-7xl w-[100%] leading-[4rem] flex md:hidden'>
+                        <span>Hi</span>
+                        {/* <span>I'm Vaidik</span> */}
+                        <div className='flex flex-wrap  items-end '>
+                          <span className='  flex items-end md:mb-0 mb-2'>
+                            I'm a  
+                          </span>
+                          <div className='font-Playwrite font-[900] w-fit'>
+                            <LetterAnimation text='Frontend' /> 
+                          </div>  
+                          <motion.div 
+                            initial={{
+                              x:100
+                            }}
+                            animate={{
+                              x:-0,
+                            }} 
+                            transition={{
+                              type:"spring",
+                              delay:1
+                            }}
+                            className='font-Playwrite font-[900] w-fit'>
+                            {/* <LetterAnimation text='Frontend' />  */}
+                            <LetterAnimation text='Developer'/>
+                          </motion.div>  
+                        </div>
+                    </h1>
                     <motion.div 
-                      className='grid grid-cols-4 items-center gap-4 text-3xl  w-fit  inset-4 px-5 py-3 rounded-lg bg-gray-800' 
+                      className='grid grid-cols-4 md:mt-0 mt-4 items-center gap-4 text-3xl mx-auto md:mx-0 w-fit  inset-4 px-5 py-3 rounded-lg bg-gray-800' 
                       initial={{ scale: 0 }}
                           animate={{ rotate: 0, scale: 1 }} // Changed to 360 degrees
                           transition={{
@@ -137,7 +164,7 @@ const HeroSection = () => {
                 type:"spring",
                 delay:1
               }}
-              className='absolute size-[25rem] z-[5] bg-green-700 right-[0%] bottom-[5%] rounded-full' />
+              className='absolute size-[25rem] z-[5] bg-green-700 right-[0%] bottom-[5%] md:flex hidden rounded-full' />
         </Wrapper>
     </section>
   )

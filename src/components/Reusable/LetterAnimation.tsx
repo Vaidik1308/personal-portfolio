@@ -22,7 +22,7 @@ const LetterAnimation: React.FC<LetterAnimationProps> = ({ text }) => {
   ];
 
   return (
-    <div className="flex p-3">
+    <div className="flex md:p-3 py-2 ">
       {text.split('').map((letter, index) => (
         <motion.span
           key={index}
