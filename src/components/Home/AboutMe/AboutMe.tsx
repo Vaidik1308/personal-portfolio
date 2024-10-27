@@ -1,10 +1,15 @@
+import Container from '@/components/Reusable/Container'
 import React from 'react'
 
 type Props = {}
 
 const AboutMe = (props: Props) => {
   return (
-    <div>AboutMe</div>
+    <section>
+        <Container>
+            <h2>About Me</h2>
+        </Container>
+    </section>
   )
 }
 
