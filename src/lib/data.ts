@@ -10,12 +10,12 @@ export const navigationData:NavigationType[] = [
       path:"#about"
     },
     {
-      label:"Projects",
-      path:"#projects"
-    },
-    {
       label:"Experience",
       path:"#experience"
+    },
+    {
+      label:"Projects",
+      path:"#projects"
     },
     {
       label:"contact",

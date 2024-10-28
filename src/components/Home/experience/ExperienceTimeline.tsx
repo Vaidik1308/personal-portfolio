@@ -73,16 +73,16 @@ const ExperienceTimeline = (props: Props) => {
                 <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
                             <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
-                                Frontend UI Developer
+                                Frontend Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
                             <div className="flex text-gray-400 items-center gap-1 text-[0.85rem]">
                                 <span>
-                                    Oct, 2024
+                                    Aug, 2024
                                 </span>
                                 <span>-</span>
                                 <span>
-                                    Present 
+                                    Nov, 2024 
                                 </span>
                             </div>
                             <div className='flex flex-col items-start gap-1'>
@@ -92,39 +92,26 @@ const ExperienceTimeline = (props: Props) => {
                         </div>
                         <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
-                            <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
-                                <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
+                            <a className='flex items-center gap-1 group' href="https://www.chatclient.ai/">
+                                <span className='group-hover:text-gray-500 duration-200'>Chatclient.ai</span>
                                 <MoveUpRight className='group-hover:rotate-45 duration-300' size={16}/>
                             </a>
                         </div>
                     </div>
                     <ul className='list-disc list-inside pl-2 text-sm mt-4 flex flex-col gap-2 text-gray-400'>
                         <li>
-                            Developed the UI for taktys.
+                            Enhancing User Experience on the ChatClient frontend by Developing and Integrating new features
                         </li>
                         <li>
-                            Utilized modern frameworks and libraries to streamline development.
-                        </li>
-                        <li>
-                            Developing the modern dashboard for users.
-                        </li>
-                        <li>
-                            Worked closely with backend developers to ensure seamless integration.
-                        </li>
-                        <li>
-                            Developing reusable components which maintains code reusability.
+                            Improving the Overall Functionality and Usability of the ChatClient application through frontend development and
+                            feature implementation.
                         </li>
                     </ul>
                     <div className='my-4 text-xs flex flex-wrap gap-2'>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>Next Js</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>React Js</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>Tailwind CSS</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Redux Toolkit</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Zustand</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Shadcn UI</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>TypeScript</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>Git Github</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>TimescaleDB</span>
                     </div>
                 </div>
             </div>
@@ -133,16 +120,16 @@ const ExperienceTimeline = (props: Props) => {
                 <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
                             <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
-                                Frontend UI Developer
+                                Frontend Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
                             <div className="flex text-gray-400 items-center gap-1 text-[0.85rem]">
                                 <span>
-                                    Oct, 2024
+                                    Apr, 2024
                                 </span>
                                 <span>-</span>
                                 <span>
-                                    Present 
+                                    Aug, 2024 
                                 </span>
                             </div>
                             <div className='flex flex-col items-start gap-1'>
@@ -152,8 +139,8 @@ const ExperienceTimeline = (props: Props) => {
                         </div>
                         <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
-                            <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
-                                <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
+                            <a className='flex items-center gap-1 group' href="https://www.shopiq.app/">
+                                <span className='group-hover:text-gray-500 duration-200'>ShopIQ</span>
                                 <MoveUpRight className='group-hover:rotate-45 duration-300' size={16}/>
                             </a>
                         </div>
@@ -187,16 +174,16 @@ const ExperienceTimeline = (props: Props) => {
                 <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
                             <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
-                                Frontend UI Developer
-                                <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
+                                Frontend Developer
+                                <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Freelance</span>
                             </h4>
                             <div className="flex text-gray-400 items-center gap-1 text-[0.85rem]">
                                 <span>
-                                    Oct, 2024
+                                    Jun, 2023
                                 </span>
                                 <span>-</span>
                                 <span>
-                                    Present 
+                                    July, 2023 
                                 </span>
                             </div>
                             <div className='flex flex-col items-start gap-1'>
@@ -206,39 +193,26 @@ const ExperienceTimeline = (props: Props) => {
                         </div>
                         <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
-                            <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
-                                <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
+                            <a className='flex items-center gap-1 group' href="/">
+                                <span className='group-hover:text-gray-500 duration-200'>CypherTech</span>
                                 <MoveUpRight className='group-hover:rotate-45 duration-300' size={16}/>
                             </a>
                         </div>
                     </div>
                     <ul className='list-disc list-inside pl-2 text-sm mt-4 flex flex-col gap-2 text-gray-400'>
                         <li>
-                            Developed the UI for new features.
+                            Developed a portfolio website for a professor at IIT Roorkee using React.js, Tailwind CSS, and various UI libraries.
                         </li>
                         <li>
-                            Utilized modern frameworks and libraries to streamline development.
-                        </li>
-                        <li>
-                            Revamped the landing page to create a more attractive UI.
-                        </li>
-                        <li>
-                            Worked closely with backend developers to ensure seamless integration.
-                        </li>
-                        <li>
-                            Developed reusable components which maintains code reusability.
+                            Featured sections include the professor’s achievements, work experience, and research.
                         </li>
                     </ul>
                     <div className='my-4 text-xs flex flex-wrap gap-2'>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Next Js</span>
+                        <span className='bg-gray-700 p-2 rounded-md text-white'>Vite Js</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>React Js</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>Tailwind CSS</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Redux Toolkit</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Zustand</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Shadcn UI</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>TypeScript</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>Git Github</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>TimescaleDB</span>
                     </div>
                 </div>
             </div>
@@ -247,16 +221,16 @@ const ExperienceTimeline = (props: Props) => {
                 <div className='w-full flex items-start md:items-center justify-between '>
                         <div className='flex flex-col gap-1'>
                             <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
-                                Frontend UI Developer
+                                Frontend Developer
                                 <span className='bg-gray-800 p-1 rounded-md text-xs  px-2'>Internship</span>
                             </h4>
                             <div className="flex text-gray-400 items-center gap-1 text-[0.85rem]">
                                 <span>
-                                    Oct, 2024
+                                    Feb, 2023
                                 </span>
                                 <span>-</span>
                                 <span>
-                                    Present 
+                                    April 2023 
                                 </span>
                             </div>
                             <div className='flex flex-col items-start gap-1'>
@@ -266,39 +240,27 @@ const ExperienceTimeline = (props: Props) => {
                         </div>
                         <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                             <span>at</span>
-                            <a className='flex items-center gap-1 group' href="https://www.taktys.com/">
-                                <span className='group-hover:text-gray-500 duration-200'>Taktys</span>
+                            <a className='flex items-center gap-1 group' href="https://meraqui.com/">
+                                <span className='group-hover:text-gray-500 duration-200'>KaroStartup</span>
                                 <MoveUpRight className='group-hover:rotate-45 duration-300' size={16}/>
                             </a>
                         </div>
                     </div>
                     <ul className='list-disc list-inside pl-2 text-sm mt-4 flex flex-col gap-2 text-gray-400'>
                         <li>
-                            Developed the UI for new features.
+                            Developed the Meraqui Company website using React.js and Tailwind CSS.
                         </li>
                         <li>
-                            Utilized modern frameworks and libraries to streamline development.
+                            Integrated sections for achievements, work offers, past works, and customer reviews.
                         </li>
                         <li>
-                            Revamped the landing page to create a more attractive UI.
-                        </li>
-                        <li>
-                            Worked closely with backend developers to ensure seamless integration.
-                        </li>
-                        <li>
-                            Developed reusable components which maintains code reusability.
+                            Optimized website performance, enhancing load times and user experience.
                         </li>
                     </ul>
                     <div className='my-4 text-xs flex flex-wrap gap-2'>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Next Js</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>React Js</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>Tailwind CSS</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Redux Toolkit</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Zustand</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>Shadcn UI</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>TypeScript</span>
                         <span className='bg-gray-700 p-2 rounded-md text-white'>Git Github</span>
-                        <span className='bg-gray-700 p-2 rounded-md text-white'>TimescaleDB</span>
                     </div>
                 </div>
             </div>

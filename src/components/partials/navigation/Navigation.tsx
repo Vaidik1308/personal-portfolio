@@ -22,7 +22,7 @@ const Navigation = () => {
               </Link>
               {hoveredIndex === i && (
                 <motion.div
-                  className='absolute left-0 bottom-0 h-[2px] bg-red-500 w-full'
+                  className='absolute left-0 bottom-0 h-[3px] bg-gray-400 w-full'
                   initial={{ width: 0 }}
                   animate={{ width: '100%' }}
                   exit={{ width: 0 }}
