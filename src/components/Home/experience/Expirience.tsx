@@ -10,7 +10,7 @@ const Experience = (props: Props) => {
     <section>
       <Container className='text-white'>
         <h2>Experience.</h2>
-        <div>
+        <div className='mx-4'>
           <ExperienceTimeline/>
         </div>
       </Container>
