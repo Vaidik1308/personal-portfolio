@@ -2,7 +2,7 @@ import Container from '@/components/Reusable/Container'
 import Image from 'next/image'
 import React from 'react'
 import ProfileImg from '../../../../public/profilePic.jpg'
-import { Code, School } from 'lucide-react'
+import { Code, LocateIcon, MapPin, School } from 'lucide-react'
 
 type Props = {}
 
@@ -22,7 +22,7 @@ const AboutMe = (props: Props) => {
                       Full Stack Developer
                     </span>
                   </div>
-                  <div className='flex items-start gap-2 w-full justify-between'>
+                  <div className='flex md:flex-row flex-col items-start gap-2 w-full justify-between'>
                     <div className='flex items-start gap-2'>
                       <School size={16}/>
                       <span className='flex flex-col'>Dayananda Sagar College of Engineering </span>
@@ -31,7 +31,7 @@ const AboutMe = (props: Props) => {
                       <span>
                         Electronics and Communication Engineering
                       </span>
-                      <span className='bg-gray-500  px-4 rounded-md py-1'>Bengaluru, India</span>
+                      <span className='bg-gray-700 text-sm  px-4 rounded-md py-1 flex items-center gap-1'> <MapPin size={16}/> Bengaluru, Karnataka</span>
                     </div>
                   </div>
               </div>

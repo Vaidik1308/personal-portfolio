@@ -20,11 +20,18 @@ const HeroSection = () => {
             <div className='  md:w-[90%] flex justify-center items-start  md:h-[70vh] flex-col'>
                 <div className='md:w-[70%] mx-auto flex flex-col gap-5 justify-center w-full'>
                     <h1 className=' flex-col text-7xl md:text-7xl w-[90%] md:w-[100%] leading-[4rem] flex'>
-                        <span>Hi👋!</span>
+                        <div> 
+                          <span className='motion-preset-slide-down-sm motion-delay-200'>
+                            Hi 
+                          </span>
+                          <span className='motion-preset-fade-lg motion-delay-700 motion-duration-700'>
+                          👋!
+                          </span>
+                        </div>
                         {/* <span>I'm Vaidik</span> */}
                         <div className='flex flex-wrap  items-end mt-2 md:mt-0'>
-                          <span className='  flex items-end md:mb-0 mb-2'>
-                            I'm a  
+                          <span className='  flex items-end md:mb-0 mb-2 motion-preset-slide-down-sm motion-delay-1000'>
+                            I'm 
                           </span>
                           <div className='font-Playwrite font-[900] w-fit'>
                             <LetterAnimation text='Vaidik' /> 
