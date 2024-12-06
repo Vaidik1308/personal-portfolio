@@ -31,7 +31,7 @@ const HeroSection = () => {
                         {/* <span>I'm Vaidik</span> */}
                         <div className='flex flex-wrap  items-end mt-2 md:mt-0'>
                           <span className='  flex items-end md:mb-0 mb-2 motion-preset-slide-down-sm motion-delay-1000'>
-                            I'm 
+                            {"I'm"} 
                           </span>
                           <div className='font-Playwrite font-[900] w-fit'>
                             <LetterAnimation text='Vaidik' /> 
