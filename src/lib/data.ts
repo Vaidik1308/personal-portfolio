@@ -26,6 +26,8 @@ export const navigationData:NavigationType[] = [
 
 
 
+
+  // experience details
   export type Experience = {
     roleName:string;
     duration?:{
@@ -178,3 +180,44 @@ export const navigationData:NavigationType[] = [
     },
     
   ]
+
+
+
+
+
+  // about me details
+  export type College = {
+    name:string;
+    branch?:string;
+    mains?:string;
+  }
+
+  type Education = {
+    college:College;
+    school:College
+  }
+
+  export type AboutMe = {
+    role:string;
+    education:Education;
+    location:string;
+    fullName:string;
+    nativeTown?:string;
+  }
+
+  export const aboutData:AboutMe = {
+    role:"Full Stack Web Developer",
+    education:{
+      college:{
+        name:"Dayananda Sagar College of Engineering",
+        branch:"Electronics and Communication Engineering",
+      },
+      school:{
+        name:"Dayananda Sagar College of Engineering",
+        mains:"PCM",
+      },
+    },
+    location:"Bengaluru, Karnataka",
+    nativeTown:"Ajmer, Rajasthan",
+    fullName:"Vaidik Singh Nirwan"
+  }
