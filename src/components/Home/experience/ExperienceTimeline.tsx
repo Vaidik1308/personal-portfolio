@@ -1,11 +1,9 @@
 import { experienceData } from '@/lib/data'
-import { div } from 'framer-motion/client'
-import { ArrowBigRight, MoveUpRight } from 'lucide-react'
+import { MoveUpRight } from 'lucide-react'
 import React from 'react'
 
-type Props = {}
 
-const ExperienceTimeline = (props: Props) => {
+const ExperienceTimeline = () => {
   return (
     <div className='my-4'>
         <ol className='flex flex-col gap-10'>

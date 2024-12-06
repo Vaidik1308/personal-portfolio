@@ -1,11 +1,8 @@
 import Container from '@/components/Reusable/Container'
-import Wrapper from '@/components/Reusable/Wrapper'
 import React from 'react'
 import ExperienceTimeline from './ExperienceTimeline'
 
-type Props = {}
-
-const Experience = (props: Props) => {
+const Experience = () => {
   return (
     <section>
       <Container className='text-white'>

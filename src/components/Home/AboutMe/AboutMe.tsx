@@ -1,20 +1,14 @@
 import Container from '@/components/Reusable/Container'
-import Image from 'next/image'
 import React from 'react'
-import ProfileImg from '../../../../public/profilePic.jpg'
-import { Code, LocateIcon, MapPin, School } from 'lucide-react'
+import { Code, MapPin, School } from 'lucide-react'
 
-type Props = {}
 
-const AboutMe = (props: Props) => {
+const AboutMe = () => {
   return (
     <section>
         <Container>
             <h2>About Me</h2>
             <div className='my-4 flex items-start gap-4 shadow-lg bg-gray-800 p-4 rounded-lg'>
-              {/* <div className='w-[10%]'>
-                <Image src={ProfileImg} alt='profile_pic' width={1000} height={1000} className='bg-[#16803D] rounded-[25px] w-[100%]'/>
-              </div> */}
               <div className='flex justify-start w-[100%] flex-col gap-2'>
                   <div className='flex items-center gap-2'>
                     <Code size={16}/>

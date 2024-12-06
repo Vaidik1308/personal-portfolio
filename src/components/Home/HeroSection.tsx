@@ -2,8 +2,6 @@
 import React from 'react'
 import Wrapper from '../Reusable/Wrapper'
 import Image from 'next/image'
-
-// import ProfilePic from '../../../../public/profilePic.jpg'
 import ProfilePic from '../../../public/banner_charater.png'
 import Link from 'next/link'
 import { BiLogoGmail } from 'react-icons/bi'
