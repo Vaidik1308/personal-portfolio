@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
-
 import BoyIcon from '../../../public/3d_boy.png';
 
 const Logo = () => {
-  console.log("Vaidik".split(""));
   
   return (
     <div className="text-xl font-[500] flex items-center gap-1">
