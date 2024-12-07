@@ -48,7 +48,8 @@ export const navigationData:NavigationType[] = [
     {
       roleName:"Frontend UI Developer",
       duration:{
-        start:"Oct, 2024"
+        start:"Nov, 2024",
+        
       },
       current:true,
       type:"remote",
@@ -108,7 +109,8 @@ export const navigationData:NavigationType[] = [
     {
       roleName:"Next Js Developer",
       duration:{
-        start:"Oct, 2024"
+        start:"Apr, 2024",
+        end:"Aug, 2024"
       },
       current:false,
       type:"remote",
@@ -159,8 +161,8 @@ export const navigationData:NavigationType[] = [
     {
       roleName:"Frontend Developer",
       duration:{
-        start:"Jun, 2023",
-        end:"uly, 2023",
+        start:"Feb, 2023",
+        end:"Apr, 2023",
       },
       current:false,
       type:"remote",

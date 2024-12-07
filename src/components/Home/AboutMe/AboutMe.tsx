@@ -2,6 +2,8 @@ import Container from '@/components/Reusable/Container'
 import React from 'react'
 import { Code, MapPin, School } from 'lucide-react'
 import { aboutData } from '@/lib/data'
+import { FcDocument } from 'react-icons/fc'
+import { IoDocumentTextOutline } from 'react-icons/io5'
 
 
 const AboutMe = () => {
@@ -12,11 +14,19 @@ const AboutMe = () => {
             <div className='my-4 flex items-start gap-4 shadow-lg bg-gray-800 p-4 rounded-lg'>
 
               <div className='flex justify-start w-[100%] flex-col gap-2'>
-                  <div className='flex items-center gap-2'>
-                    <Code size={16}/>
-                    <span>
-                      {aboutData.role}
-                    </span>
+                  <div className='flex justify-between'>
+                    <div className='flex items-center gap-2'>
+                      <Code size={16}/>
+                      <span>
+                        {aboutData.role}
+                      </span>
+                    </div>
+                    <div className='flex items-center gap-1 px-2 bg-gray-700 py-1 rounded-sm'>
+                      <IoDocumentTextOutline size={20}/>
+                      <a className='cursor-pointer' target='_blank' href='https://drive.google.com/file/d/1RCjO4PdloKZwVijaAo8yt_6jYLo3vKH7/view?usp=sharing'>
+                        Resume
+                      </a>
+                    </div>
                   </div>
                   <div className='flex md:flex-row flex-col items-start gap-2 w-full justify-between'>
                     <div className='flex items-start gap-2'>
