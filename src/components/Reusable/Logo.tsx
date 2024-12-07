@@ -7,7 +7,7 @@ const Logo = () => {
   console.log("Vaidik".split(""));
   
   return (
-    <div className="text-2xl font-[500] flex items-center gap-2">
+    <div className="text-xl font-[500] flex items-center gap-1">
       <Image src={BoyIcon} width={40} height={40} alt="boy_3d" />
       <h3 className="uppercase font-extrabold flex gap-0.5 motion-scale-in-50 motion-preset-slide-right-lg">
         <div className=' -motion-rotate-loop-12 motion-translate-y-loop-[20%] motion-duration-2000 motion-ease-in-out motion-delay-100'>V</div>

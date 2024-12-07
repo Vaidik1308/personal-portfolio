@@ -18,13 +18,18 @@ const HeroSection = () => {
             <div className='  md:w-[90%] flex justify-center items-start  md:h-[70vh] flex-col'>
                 <div className='md:w-[70%] mx-auto flex flex-col gap-5 justify-center w-full'>
                     <h1 className=' flex-col text-7xl md:text-7xl w-[90%] md:w-[100%] leading-[4rem] flex'>
-                        <div> 
-                          <span className='motion-preset-slide-down-sm motion-delay-200'>
+                        <div className='flex'> 
+                          <div className='motion-preset-slide-down-sm motion-delay-200'>
                             Hi 
-                          </span>
-                          <span className='motion-preset-fade-lg motion-delay-700 motion-duration-700'>
-                          👋!
-                          </span>
+                          </div>
+                          <div className='flex items-center motion-preset-slide-right-lg'>
+                            <div className='motion-preset-fade-lg motion-delay-700 motion-duration-700 motion-ease-spring-smooth  motion-rotate-loop-6'>
+                            👋
+                            </div>
+                            <div>
+                              !
+                            </div>
+                          </div>
                         </div>
                         {/* <span>I'm Vaidik</span> */}
                         <div className='flex flex-wrap  items-end mt-2 md:mt-0'>
