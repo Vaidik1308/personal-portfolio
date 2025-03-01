@@ -41,9 +41,13 @@ const HeroSection = () => {
                           </div>   
                         </div>
                     </h1>
-                    <ul className='flex flex-col gap-1 list-disc pl-6'>
-                      <li>Frontend Software Engineer <span className='bg-gray-700 py-1 p-1 rounded-sm'>Crafting Seamless User Experience</span> </li>
-                      <li>focussed on building pixel perfect web apps </li>
+                    <ul className='flex flex-col gap-1 list-none pl-4 md:pl-0'>
+                      <li className='leading-8 flex flex-wrap'>Frontend Developer 
+                        <span className='text-blue-500  rounded-sm  ml-1 text-[0.8rem] md:text-[1rem] flex items-center justify-center'>Crafting</span> 
+                        <span className='text-green-500 rounded-sm  mx-1 text-[1rem] md:text-[1.2rem] flex items-center justify-center'>Seamless</span> 
+                        <span className='text-red-500  rounded-sm  mr-1 text-[1.2rem] md:text-[1.4rem] flex items-center justify-center'>User Experience</span>
+                      </li>
+                      <li>Specializing in pixel perfect web applications</li>
                     </ul>
                     <motion.div 
                       className='grid grid-cols-4 md:mt-0 mt-4 items-center gap-4 text-3xl mx-auto md:mx-0 w-fit  inset-4 px-5 py-3 rounded-lg bg-gray-800' 
@@ -67,9 +71,9 @@ const HeroSection = () => {
                             delay: 0.1 // Delay for the first icon
                           }}
                         >
-                          <Link className='bg-white w-full  rounded-md text-red-500 p-1' href={"/"}>
+                          <a className='bg-white w-full  rounded-md text-red-500 p-1' href={"mailto:vaidiksinghnirwan@gmail.com"} target='_blank'>
                               <BiLogoGmail className='' />
-                          </Link>
+                          </a>
                         </motion.div>
                         <motion.div
                           className=" flex items-center justify-center"
@@ -82,9 +86,9 @@ const HeroSection = () => {
                             delay: 0.2 // Delay for the second icon
                           }}
                         >
-                          <Link className='bg-[#0B67C3]  text-white border-0 rounded-md p-1' href={"/"}>
+                          <a className='bg-[#0B67C3]  text-white border-0 rounded-md p-1' target='_blank' href={"https://www.linkedin.com/in/vaidik-singh-nirwan-b837351b2/"}>
                               <FaLinkedinIn className='' />
-                          </Link>
+                          </a>
                         </motion.div>
                         <motion.div
                           className="flex items-center justify-center"
@@ -97,9 +101,9 @@ const HeroSection = () => {
                             delay: 0.3 // Delay for the third icon
                           }}
                         >
-                          <Link className='' href={"/"}>
+                          <a className='' href={"https://x.com/kriishnaa_13"} target='_blank'>
                               <FaSquareXTwitter size={40} />
-                          </Link>
+                          </a>
                         </motion.div>
                         
                           <motion.div
@@ -113,9 +117,9 @@ const HeroSection = () => {
                               delay: 0.4 // Delay for the GitHub icon
                             }}
                           >
-                            <Link href={"/"}>
+                            <a href={"https://github.com/Vaidik1308"} target='_blank'>
                                 <FaGithub size={35} />
-                            </Link>
+                            </a>
                           </motion.div>
                     </motion.div>
                 </div>

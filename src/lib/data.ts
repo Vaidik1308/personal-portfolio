@@ -63,16 +63,15 @@ export const navigationData:NavigationType[] = [
       ],
       skills:[
         "Next Js",
-        "React Js",
         "Tailwind CSS",
         "Redux Toolkit",
-        "Zustand",
+        "React Query",
         "Shadcn UI",
         "TypeScript",
-        "Git Github",
         "TimescaleDB",
         "Nivo Charts",
-        "Postgres SQL"
+        "Postgres SQL",
+        "Docker"
       ],
       companyLink:"https://www.taktys.com/",
       companyName:"Taktys"
@@ -88,20 +87,15 @@ export const navigationData:NavigationType[] = [
       type:"remote",
       jobType:"Internship",
       desc:[
-        "Enhancing User Experience on the ChatClient frontend by Developing and Integrating new features",
-        "Improving the Overall Functionality and Usability of the ChatClient application through frontend development and feature implementation.",
-        "Implemented the Teams feature in the existing website",
-        "Revamp the Chatclient UI",
-        "Added the tools section the website",
-        "Worked closely with backend developers to ensure seamless integration.",
-        "Developing reusable components which maintains code reusability.",
+        "Implemented features like custom actions, integrations with Zapier and Slack, teams, and revamped the ChatClient UI while adding a tools section.",
+        "Enhanced user experience by developing and integrating new features to improve functionality and usability.",
+        "Collaborated with backend developers for seamless integration and built reusable components to maintain code efficiency.",
       ],
       skills:[
         "Next Js",
-        "React Js",
         "Tailwind CSS",
         "Context API",
-        "Git Github",
+        "Redux Toolkit",
       ],
       companyLink:"https://www.chatclient.ai/",
       companyName:"Chatclientai"
@@ -123,7 +117,6 @@ export const navigationData:NavigationType[] = [
       ],
       skills:[
         "Next Js",
-        "React Js",
         "Tailwind CSS",
         "Redux Toolkit",
         "ChartJs",
@@ -149,7 +142,7 @@ export const navigationData:NavigationType[] = [
         "Featured sections include the professor’s achievements, work experience, and research.",
       ],
       skills:[
-        "Vite Js",
+        "Vite",
         "React Js",
         "Tailwind CSS",
         "TypeScript",
