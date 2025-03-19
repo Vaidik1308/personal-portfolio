@@ -2,7 +2,6 @@ import Container from '@/components/Reusable/Container'
 import React from 'react'
 import { Code, MapPin, School } from 'lucide-react'
 import { aboutData } from '@/lib/data'
-import { FcDocument } from 'react-icons/fc'
 import { IoDocumentTextOutline } from 'react-icons/io5'
 import { TbBrand4Chan } from 'react-icons/tb'
 
