@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Common/Header";
-import Footer from "@/components/Common/Footer";
+// import Footer from "@/components/Common/Footer";
 
 export const metadata: Metadata = {
   title: "Vaidik Singh Nirwan | Home",
