@@ -10,7 +10,7 @@ const ExperienceTimeline = () => {
             {experienceData.map((item) =>(
                 <div key={item.companyName} className='border-l-[2px] border-white px-4'>
                     <div className='w-full flex flex-col '>
-                        <div className='w-full flex items-start md:items-center justify-between '>
+                        <div className='w-full flex items-start md:items-center justify-between md:gap-0 gap-2 '>
                             <div className='flex flex-col gap-1'>
                                 <h4 className='md:text-xl md:leading-3 flex items-start md:items-center gap-2'>
                                     {item.roleName}

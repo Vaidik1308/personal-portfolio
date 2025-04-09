@@ -7,7 +7,7 @@ const Experience = () => {
     <section>
       <Container className='text-white'>
         <h2>Experience.</h2>
-        <div className='mx-4'>
+        <div className='md:mx-4'>
           <ExperienceTimeline/>
         </div>
       </Container>

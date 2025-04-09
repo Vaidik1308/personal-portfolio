@@ -11,6 +11,18 @@ const AboutMe = () => {
     <section>
         <Container>
             <h2>About Me</h2>
+            <div className='my-4 gap-4 shadow-lg bg-gray-800 p-4 rounded-lg'>
+            Full Stack Developer passionate about Frontend <span className=''>💻</span>. I build clean, responsive apps using React <span>⚛️</span>, Next.js, TypeScript, Tailwind <span>🎨</span>, Node.js & Express. Interned at CFT Labs, ChatClient.ai & Taktys <span>🛠️</span>. I love creating smooth digital experiences <span>✨</span> and always aim to learn and grow <span>🚀</span>.
+
+
+
+
+
+
+
+
+
+            </div>
             <div className='my-4 flex items-start gap-4 shadow-lg bg-gray-800 p-4 rounded-lg'>
 
               <div className='flex justify-start w-[100%] flex-col gap-2'>
