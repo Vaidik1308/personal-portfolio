@@ -81,7 +81,7 @@ export const navigationData:NavigationType[] = [
       roleName:"Frontend Developer",
       duration:{
         start:"Aug, 2024",
-        end:"Nov, 2024"
+        end:"May, 2025"
       },
       current:false,
       type:"remote",
