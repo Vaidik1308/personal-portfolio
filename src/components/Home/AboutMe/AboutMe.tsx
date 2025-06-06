@@ -35,7 +35,7 @@ const AboutMe = () => {
                     </div>
                     <div className='flex items-center w-fit px-2 h-[35px] md:h-auto md:w-fit justify-center gap-1 md:px-2 bg-gray-700 md:py-1 text-[0.75rem] md:text-[1rem] rounded-sm'>
                       <IoDocumentTextOutline className=' text-[14px] md:text-[16px]'/>
-                      <a className='cursor-pointer' target='_blank' href='https://drive.google.com/file/d/1Ni_DH6-0LpaTKpe3rdaqEXsvP_BKBMNV/view?usp=sharing'>
+                      <a className='cursor-pointer' target='_blank' href='https://drive.google.com/file/d/1YbjXs2ALW_TCBest6qYPfENCqL7vIOiZ/view?usp=sharing'>
                         Resume
                       </a>
                     </div>

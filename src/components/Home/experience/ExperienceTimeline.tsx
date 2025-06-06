@@ -32,7 +32,7 @@ const ExperienceTimeline = () => {
                             </div>
                             <div className='flex items-center gap-1 bg-gray-100 p-2 rounded-md text-black px-2 md:px-4 text-xs md:text-sm'>
                                 <span>at</span>
-                                <a className='flex items-center gap-1 group' href={item.companyLink}>
+                                <a className='flex items-center gap-1 group' target='_blank' href={item.companyLink}>
                                     <span className='group-hover:text-gray-500 duration-200'>{item.companyName}</span>
                                     <MoveUpRight className='group-hover:rotate-45 duration-300' size={16}/>
                                 </a>

@@ -46,6 +46,40 @@ export const navigationData:NavigationType[] = [
 
   export const experienceData :Experience[] = [
     {
+      roleName:"Full Stack Developer",
+      duration:{
+        start:"May, 2025",
+        end:"Present"
+      },
+      current:true,
+      type:"remote",
+      jobType:"Internship",
+      desc:[
+        "Developing and integrating the Dashboard of the zame ai with backend",
+        "Developing the APIs for the dashboard using fastApi.",
+        "Improving the Overall UI of the zame ai.",
+        "Developing reusable components which maintains code reusability.",
+      ],
+      skills:[
+        "Next Js",
+        "Tailwind CSS",
+        "Redux Toolkit",
+        "React Query",
+        "Shadcn UI",
+        "TypeScript",
+        "Postgres SQL",
+        "Docker",
+        "FastApi",
+        "Python",
+        "Git Github",
+        "Figma",
+        "scss",
+        
+      ],
+      companyLink:"https://www.zame.ai/",
+      companyName:"Zame AI"
+    },
+    {
       roleName:"Frontend UI Developer",
       duration:{
         start:"Nov, 2024",
@@ -125,7 +159,7 @@ export const navigationData:NavigationType[] = [
         "Git Github",
         "MongoDB",
       ],
-      companyLink:"https://www.taktys.com/",
+      companyLink:"https://www.shopiq.app/",
       companyName:"ShopIQ"
     },
     {
