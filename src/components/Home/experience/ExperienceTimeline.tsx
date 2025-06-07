@@ -1,3 +1,4 @@
+import AnimatedElement from '@/components/Reusable/animated-element'
 import { experienceData } from '@/lib/data'
 import { MoveUpRight } from 'lucide-react'
 import React from 'react'
@@ -7,8 +8,8 @@ const ExperienceTimeline = () => {
   return (
     <div className='my-4'>
         <ol className='flex flex-col gap-10'>
-            {experienceData.map((item) =>(
-                <div key={item.companyName} className='border-l-[2px] border-white px-4'>
+            {experienceData.map((item,index) =>(
+                <AnimatedElement key={item.companyName} variant='fadeInUp' delay={index*0.1} duration={0.5} once={true} className='border-l-[2px] border-white px-4'>
                     <div className='w-full flex flex-col '>
                         <div className='w-full flex items-start md:items-center justify-between md:gap-0 gap-2 '>
                             <div className='flex flex-col gap-1'>
@@ -52,7 +53,7 @@ const ExperienceTimeline = () => {
                             ))}
                         </div>
                     </div>
-                </div>
+                </AnimatedElement>
             ))}
             
         </ol>

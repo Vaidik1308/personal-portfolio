@@ -12,10 +12,10 @@ import LetterAnimation from '../Reusable/LetterAnimation'
 
 const HeroSection = () => {
   return (
-    <section>
+    <section className='md:min-h-[100vh]'>
         <Wrapper className='md:w-[80%] mx-auto flex md:flex-row flex-col relative px-8'>
             <div className='  md:w-[90%] flex justify-center items-start  md:h-[70vh] flex-col'>
-                <div className='md:w-[70%] mx-auto flex flex-col gap-5 justify-center w-full'>
+                <div className='md:w-[70%] mx-auto flex flex-col gap-5 justify-center items-center md:items-start  w-full'>
                     <h1 className=' flex-col text-7xl md:text-7xl w-[90%] md:w-[100%] leading-[4rem] flex'>
                         <div className='flex'> 
                           <div className='motion-preset-slide-down-sm motion-delay-200'>
