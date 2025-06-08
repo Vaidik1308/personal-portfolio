@@ -5,13 +5,14 @@ import { aboutData } from '@/lib/data'
 import { IoDocumentTextOutline } from 'react-icons/io5'
 import { TbBrand4Chan } from 'react-icons/tb'
 import AnimatedElement from '@/components/Reusable/animated-element'
+import { HeaderSection } from '@/components/Reusable/HeaderSection'
 
 
 const AboutMe = () => {
   return (
-    <section>
+    <section id='about' className=' md:mt-16'>
         <Container>
-            <h2>About Me</h2>
+            <HeaderSection>About Me</HeaderSection>
             <AnimatedElement variant='fadeInUp' delay={0.1} duration={0.5} once={true} className='my-4 gap-4 shadow-lg bg-gray-800 p-4 rounded-lg'>
             Full Stack Developer passionate about Frontend <span className=''>💻</span>. I build clean, responsive apps using React <span>⚛️</span>, Next.js, TypeScript, Tailwind <span>🎨</span>, Node.js & Express. Interned at CFT Labs, ChatClient.ai & Taktys <span>🛠️</span>. I love creating smooth digital experiences <span>✨</span> and always aim to learn and grow <span>🚀</span>.
 

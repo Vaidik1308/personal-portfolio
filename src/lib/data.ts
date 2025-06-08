@@ -14,12 +14,8 @@ export const navigationData:NavigationType[] = [
       path:"#experience"
     },
     {
-      label:"Projects",
-      path:"#projects"
-    },
-    {
-      label:"contact",
-      path:"#contact"
+      label:"Skills",
+      path:"#skills"
     },
   ]
 

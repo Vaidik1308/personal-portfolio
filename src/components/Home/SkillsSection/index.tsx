@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FaReact } from 'react-icons/fa';
 import { SiExpress, SiMongodb, SiNextdotjs, SiTailwindcss, SiTypescript, SiNodedotjs, SiPostgresql, SiGit, SiJavascript, SiPython, SiCplusplus, SiReact, SiFastapi, SiDart, SiSass } from 'react-icons/si';
 import AnimatedElement from '@/components/Reusable/animated-element';
+import { HeaderSection } from '@/components/Reusable/HeaderSection';
 
 type Skill = {
     name: string;
@@ -103,10 +104,10 @@ const SkillsSection = () => {
 
     ]
   return (
-    <section className='mt-12'>
+    <section id='skills' className='mt-12'>
     <Container className='text-white'>
-      <h2>Skills.</h2>
-      <div className='md:mx-4 md:flex md:flex-wrap md:gap-4 md:py-4 py-4 grid grid-cols-3 gap-4'>
+      <HeaderSection>Skills.</HeaderSection>
+      <div className='md:mx-4 md:flex md:flex-wrap md:gap-4 md:py-4 md:justify-center md:items-center py-4 grid grid-cols-3 gap-4'>
         {/* <ExperienceTimeline/> */}
         {
             skills.map((skill, index) => (
@@ -116,7 +117,7 @@ const SkillsSection = () => {
                     duration={0.5}
                     once={true}
                     key={index} 
-                    className='flex items-center flex-col bg-gray-800 md:p-4 rounded-lg md:size-32 size-24 justify-center gap-5 hover:scale-105 transition-all duration-300 cursor-pointer hover:bg-gray-700'
+                    className='flex items-center flex-col bg-gray-800 md:p-4 rounded-lg md:size-32 size-24 p-1 justify-center gap-5 hover:scale-105 transition-all duration-300 cursor-pointer hover:bg-gray-700'
                 >
                     {skill.icon}
                     <span className='text-sm'>{skill.name}</span>
