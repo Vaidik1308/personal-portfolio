@@ -7,7 +7,7 @@ import { HeaderSection } from '@/components/Reusable/HeaderSection'
 
 const Experience = () => {
   return (
-    <section id='experience' className='mt-12'>
+    <section id='experience' className='mt-12 px-2'>
       <Container className='text-white flex flex-col gap-4 justify-center items-center w-full'>
         <div className='flex flex-col gap-2 justify-center items-center w-full'>
           <HeaderSection description='I have worked on a variety of projects, from small personal projects to large scale enterprise applications.'>Experience.</HeaderSection>

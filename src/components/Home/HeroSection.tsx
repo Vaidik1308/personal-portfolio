@@ -8,6 +8,7 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import { FaSquareXTwitter } from 'react-icons/fa6'
 import {motion } from 'framer-motion'
 import LetterAnimation from '../Reusable/LetterAnimation'
+import AnimatedElement from '../Reusable/animated-element'
 
 
 const HeroSection = () => {
@@ -41,12 +42,16 @@ const HeroSection = () => {
                         </div>
                     </h1>
                     <ul className='flex flex-col gap-1 list-none pl-4 md:pl-0'>
-                      <li className='leading-8 flex flex-wrap'>Frontend Developer 
-                        <span className='text-blue-500  rounded-sm  ml-1 text-[0.8rem] md:text-[1rem] flex items-center justify-center'>Crafting</span> 
-                        <span className='text-green-500 rounded-sm  mx-1 text-[1rem] md:text-[1.2rem] flex items-center justify-center'>Seamless</span> 
-                        <span className='text-red-500  rounded-sm  mr-1 text-[1.2rem] md:text-[1.4rem] flex items-center justify-center'>User Experience</span>
-                      </li>
-                      <li>Specializing in pixel perfect web applications</li>
+                      <AnimatedElement variant='fadeInUp' delay={0.1} duration={0.5} once={true} className='leading-8 flex flex-wrap'>
+                        <li className='leading-8 flex flex-wrap'>Frontend Developer 
+                          <span className='text-blue-500  rounded-sm  ml-1 text-[0.8rem] md:text-[1rem] flex items-center justify-center'>Crafting</span> 
+                          <span className='text-green-500 rounded-sm  mx-1 text-[1rem] md:text-[1.2rem] flex items-center justify-center'>Seamless</span> 
+                          <span className='text-red-500  rounded-sm  mr-1 text-[1.2rem] md:text-[1.4rem] flex items-center justify-center'>User Experience</span>
+                        </li>
+                      </AnimatedElement>
+                      <AnimatedElement variant='fadeInUp' delay={0.2} duration={0.5} once={true} className='leading-8 flex flex-wrap'>
+                        <li>Specializing in pixel perfect web applications</li>
+                      </AnimatedElement>
                     </ul>
                     <motion.div 
                       className='grid grid-cols-4 md:mt-0 mt-4 items-center gap-4 text-3xl mx-auto md:mx-0 w-fit  inset-4 px-5 py-3 rounded-lg bg-gray-800' 
@@ -123,9 +128,9 @@ const HeroSection = () => {
                     </motion.div>
                 </div>
             </div>
-            <div className='w-[45%] md:flex hidden absolute z-10 -right-[5%]'>
+            <AnimatedElement variant='fadeInRight' delay={0.1} duration={0.5} once={true} className='w-[45%] md:flex hidden absolute z-10 -right-[5%]'>
                 <Image src={ProfilePic} width={500} height={500} className='w-[100%] h-auto ' alt='profilePic'/>
-            </div>
+            </AnimatedElement>
             <motion.div 
               initial={{
                 x:100,

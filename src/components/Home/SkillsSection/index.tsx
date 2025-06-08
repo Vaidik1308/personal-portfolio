@@ -119,8 +119,12 @@ const SkillsSection = () => {
                     key={index} 
                     className='flex items-center flex-col bg-gray-800 md:p-4 rounded-lg md:size-32 size-24 p-1 justify-center gap-5 hover:scale-105 transition-all duration-300 cursor-pointer hover:bg-gray-700'
                 >
-                    {skill.icon}
-                    <span className='text-sm'>{skill.name}</span>
+                    <AnimatedElement variant='bounce' delay={index*0.1} duration={1} once={true} className='text-white'>
+                        {skill.icon}
+                    </AnimatedElement>
+                    <AnimatedElement variant='fadeIn' delay={index*0.1} duration={0.5} once={true} className='text-sm'>
+                        {skill.name}
+                    </AnimatedElement>
                 </AnimatedElement>
             ))
         }
