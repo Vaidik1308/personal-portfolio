@@ -27,7 +27,7 @@ const SkillsSection = () => {
         {
             name: 'Next.js',
             type:'icon',
-            icon: <SiNextdotjs className='text-white' size={ isMobile ? 30 :50}/>
+            icon: <SiNextdotjs className='text-black dark:text-white' size={ isMobile ? 30 :50}/>
         },
         {
             name: 'React Native',
@@ -117,7 +117,7 @@ const SkillsSection = () => {
                     duration={0.5}
                     once={true}
                     key={index} 
-                    className='flex items-center flex-col bg-gray-800 md:p-4 rounded-lg md:size-32 size-24 p-1 justify-center gap-5 hover:scale-105 transition-all duration-300 cursor-pointer hover:bg-gray-700'
+                    className='flex items-center flex-col dark:bg-gray-800 text-black shadow-lg bg-green-100 md:p-4 rounded-lg md:size-32 size-24 p-1 justify-center gap-5 hover:scale-105 transition-all duration-300 cursor-pointer dark:hover:bg-gray-700 hover:bg-green-200 dark:text-white hover:text-black'
                 >
                     <AnimatedElement variant='bounce' delay={index*0.1} duration={1} once={true} className='text-white'>
                         {skill.icon}

@@ -54,7 +54,7 @@ const HeroSection = () => {
                       </AnimatedElement>
                     </ul>
                     <motion.div 
-                      className='grid grid-cols-4 md:mt-0 mt-4 items-center gap-4 text-3xl mx-auto md:mx-0 w-fit  inset-4 px-5 py-3 rounded-lg bg-gray-800' 
+                      className='grid grid-cols-4 md:mt-0 mt-4 items-center gap-4 text-3xl mx-auto md:mx-0 w-fit  inset-4 px-5 py-3 rounded-lg dark:bg-gray-800 bg-green-100' 
                       initial={{ scale: 0 }}
                           animate={{ rotate: 0, scale: 1 }} // Changed to 360 degrees
                           transition={{
@@ -144,7 +144,7 @@ const HeroSection = () => {
                 type:"spring",
                 delay:1
               }}
-              className='absolute size-[25rem] z-[5] bg-green-700 right-[0%] bottom-[5%] md:flex hidden rounded-full' />
+              className='absolute size-[25rem] z-[5] dark:bg-primary/20 bg-green-500 right-[0%] bottom-[5%] md:flex hidden rounded-full' />
         </Wrapper>
     </section>
   )
