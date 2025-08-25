@@ -32,7 +32,7 @@ export const navigationData:NavigationType[] = [
     };
     current?:boolean
     type:"remote" | "hybrid" | "onsite";
-    jobType:"Internship" | "Full-Time" | "Freelance" | "Contract";
+    jobType:"Internship" | "Full-Time" | "Freelance" | "Contract" | "Part-time";
     desc:string[];
     skills:string[];
     companyLink?:string;
@@ -42,10 +42,37 @@ export const navigationData:NavigationType[] = [
 
   export const experienceData :Experience[] = [
     {
+      roleName:"Frontend Developer Consultant",
+      duration:{
+        start:"August, 2025",
+        end:"Present"
+      },
+      current:true,
+      type:"remote",
+      jobType:"Part-time",
+      desc:[
+        "Led development of the Meta Create project, architecting scalable features using best-in-class engineering practices.",
+        "Enhanced overall UI consistency and user experience by refining design systems and addressing usability feedback.",
+        "Designed and implemented user interfaces for diverse client projects with Next.js, focusing on performance and usability.",
+      ],
+      skills:[
+        "Next Js",
+        "Tailwind CSS",
+        "Redux Toolkit",
+        "React Query",
+        "Shadcn UI",
+        "TypeScript",
+        "Postgres SQL",
+        "NestJS",  
+      ],
+      companyLink:"https://www.m0.org/",
+      companyName:"M0"
+    },
+    {
       roleName:"Full Stack Developer",
       duration:{
         start:"May, 2025",
-        end:"Present"
+        end:"August, 2025"
       },
       current:true,
       type:"remote",
