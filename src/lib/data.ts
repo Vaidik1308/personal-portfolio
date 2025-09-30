@@ -42,6 +42,33 @@ export const navigationData:NavigationType[] = [
 
   export const experienceData :Experience[] = [
     {
+      roleName:"Software Developer",
+      duration:{
+        start:"October, 2025",
+        end:"Present"
+      },
+      current:true,
+      type:"remote",
+      jobType:"Full-Time",
+      desc:[
+        "Led development of the Wedy AI platform by implementing scalable features using best-in-class engineering practices.",
+        "Enhanced overall UI consistency and user experience by refining design systems and addressing usability feedback.",
+      ],
+      skills:[
+        "Next Js",
+        "Tailwind CSS",
+        "Redux Toolkit",
+        "React Query",
+        "Shadcn UI",
+        "TypeScript",
+        "NodeJS",
+        "ExpressJS",  
+        "Postgres SQL",
+      ],
+      companyLink:"https://www.wedyapp.com/",
+      companyName:"Wedy AI"
+    },
+    {
       roleName:"Frontend Developer Consultant",
       duration:{
         start:"August, 2025",

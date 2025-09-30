@@ -35,7 +35,7 @@ const AboutMe = () => {
                         {aboutData.role}
                       </span>
                     </div>
-                    <a target='_blank' href='https://drive.google.com/file/d/1YbjXs2ALW_TCBest6qYPfENCqL7vIOiZ/view?usp=sharing' className='flex items-center  px-2 h-[35px] md:h-auto justify-center gap-1 md:px-2 dark:bg-gray-800 bg-green-500 md:py-1 text-[0.75rem] md:text-[1rem] rounded-sm mt-2 md:mt-0 w-full md:w-fit hover:bg-accent duration-200 cursor-pointer text-white select-none'>
+                    <a target='_blank' href='https://drive.google.com/file/d/1xXlZAOPBqoLlNim0mF8TEo_LXfH8QSBd/view?usp=sharing' className='flex items-center  px-2 h-[35px] md:h-auto justify-center gap-1 md:px-2 dark:bg-gray-800 bg-green-500 md:py-1 text-[0.75rem] md:text-[1rem] rounded-sm mt-2 md:mt-0 w-full md:w-fit hover:bg-accent duration-200 cursor-pointer text-white select-none'>
                       <IoDocumentTextOutline className=' text-[14px] md:text-[16px] '/>
                       <span className='cursor-pointer' >
                         Resume
