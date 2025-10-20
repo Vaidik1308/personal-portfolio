@@ -16,8 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-varela antialiased bg-background text-foreground w-full flex flex-col">
-        <Link href={"/intro"}>open modal</Link>
+      <body className="font-varela antialiased bg-background text-foreground w-full flex flex-col h-screen max-h-[100vh]">
         {children}
         {modal}
       </body>
