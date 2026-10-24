@@ -10,10 +10,16 @@ const config: Config = {
   theme: {
   	extend: {
 		fontFamily:{
-			"Playwrite":["Playwrite GB S, cursive"],
-			"varela":["Varela Round"],
+			"sf":["-apple-system", "BlinkMacSystemFont", '"SF Pro Text"', '"SF Pro Display"', "Inter", '"Segoe UI"', "Roboto", "Helvetica", "Arial", "sans-serif"],
 		},
   		colors: {
+  			sys: {
+  				blue: 'rgb(var(--sys-blue) / <alpha-value>)',
+  				label: 'rgb(var(--sys-label) / <alpha-value>)',
+  				secondary: 'rgb(var(--sys-secondary) / <alpha-value>)',
+  				card: 'rgb(var(--sys-card) / <alpha-value>)',
+  				grouped: 'rgb(var(--sys-grouped) / <alpha-value>)'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -64,7 +70,6 @@ const config: Config = {
   },
   plugins: [
 	require("tailwindcss-animate"),
-	require('tailwindcss-motion')
 ],
 };
 export default config;
