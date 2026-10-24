@@ -3,15 +3,17 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { BriefcaseBusiness, FileText, Folder, MousePointerClick, X } from "lucide-react";
-import { currentRole, profile, socials } from "@/lib/portfolio";
-import { OSContext, useNow } from "../context";
+import { FileText, Folder, MousePointerClick, X } from "lucide-react";
+import { profile, socials } from "@/lib/portfolio";
+import { OSContext, useKeyLabels } from "../context";
 import { getApp, isAppId, type AppId } from "../registry";
 import { appContent } from "../apps";
 import { StatusPill } from "../apps/ui";
 import Dock from "./Dock";
 import ShieldWidget from "./ShieldWidget";
-import MenuBar from "./MenuBar";
+import { CalendarWidget, ExperienceWidget, HomeClock, NowWidget, WeatherWidget } from "../widgets";
+import MenuBar, { type Command } from "./MenuBar";
+import Spotlight from "../Spotlight";
 import Window, { type Geometry } from "./Window";
 
 type Win = { id: AppId; geometry: Geometry; minimized: boolean; maximized: boolean; fromDock: boolean };
@@ -26,6 +28,8 @@ export default function MacDesktop() {
   // Array order is z-order: last item is on top
   const [wins, setWins] = useState<Win[]>([]);
   const [hint, setHint] = useState(false);
+  const [spotlight, setSpotlight] = useState(false);
+  const keys = useKeyLabels();
 
   useLayoutEffect(() => {
     const el = areaRef.current!;
@@ -63,6 +67,42 @@ export default function MacDesktop() {
   const visible = wins.filter((w) => !w.minimized);
   const focused = visible.length ? visible[visible.length - 1].id : null;
 
+  const runCommand = useCallback(
+    (cmd: Command) => {
+      if (cmd === "spotlight") return setSpotlight(true);
+      if (!focused) return;
+      if (cmd === "close") setWins((ws) => ws.filter((w) => w.id !== focused));
+      else if (cmd === "minimize") update(focused, (w) => ({ ...w, minimized: true }));
+      else if (visible.length > 1) {
+        // Like ⌘` on macOS: bring the back-most window forward and give it keyboard focus
+        const next = visible[0].id;
+        focus(next);
+        requestAnimationFrame(() => document.querySelector<HTMLElement>(`[data-window-id="${next}"]`)?.focus());
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [focused, visible]
+  );
+
+  // Browsers reserve ⌘W/⌘M/⌘` for their own windows, so window shortcuts use ⌥ instead
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && !e.altKey && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSpotlight((s) => !s);
+        return;
+      }
+      if (!e.altKey || e.metaKey || e.ctrlKey) return;
+      const cmd: Command | null = e.code === "KeyW" ? "close" : e.code === "KeyM" ? "minimize" : e.code === "Backquote" ? "cycle" : null;
+      if (cmd) {
+        e.preventDefault();
+        runCommand(cmd);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [runCommand]);
+
   // Open the deep-linked app (or About) once the desktop has a size
   const booted = useRef(false);
   useEffect(() => {
@@ -94,7 +134,7 @@ export default function MacDesktop() {
   return (
     <OSContext.Provider value={ctx}>
       <div className="wallpaper fixed inset-0 flex flex-col overflow-hidden font-sf">
-        <MenuBar focused={focused} hasWindows={wins.length > 0} onOpen={openApp} onCloseAll={() => setWins([])} />
+        <MenuBar focused={focused} hasWindows={wins.length > 0} onOpen={openApp} onCommand={runCommand} onCloseAll={() => setWins([])} />
 
         <div ref={areaRef} className="relative flex-1">
           <DesktopWidgets onOpen={openApp} />
@@ -141,7 +181,7 @@ export default function MacDesktop() {
               >
                 <MousePointerClick className="size-4 text-sky-300" aria-hidden />
                 <span>
-                  Open sections from the <b>Dock</b> or the <b>menu bar</b>. Drag windows by their title bar.
+                  Open sections from the <b>Dock</b>, or press <b>{keys.mod}K</b> to search everything.
                 </span>
                 <button onClick={dismissHint} aria-label="Dismiss tip" className="rounded-full p-1 hover:bg-white/15">
                   <X className="size-4" />
@@ -152,13 +192,16 @@ export default function MacDesktop() {
 
           <Dock running={running} onOpen={openApp} />
         </div>
+
+        <AnimatePresence>
+          {spotlight && <Spotlight onOpen={openApp} onClose={() => setSpotlight(false)} />}
+        </AnimatePresence>
       </div>
     </OSContext.Provider>
   );
 }
 
 function DesktopWidgets({ onOpen }: { onOpen: (id: AppId) => void }) {
-  const now = useNow();
   const card = "block w-full rounded-[22px] bg-white/45 p-4 text-left text-zinc-900 shadow-lg ring-1 ring-white/50 backdrop-blur-2xl transition hover:bg-white/55 dark:bg-zinc-900/45 dark:text-white dark:ring-white/10 dark:hover:bg-zinc-900/55";
   return (
     <aside aria-label="Widgets" className="absolute left-5 top-5 hidden w-[300px] flex-col gap-3 xl:flex">
@@ -172,27 +215,16 @@ function DesktopWidgets({ onOpen }: { onOpen: (id: AppId) => void }) {
         </div>
         {profile.status && <div className="mt-3"><StatusPill>{profile.status}</StatusPill></div>}
       </button>
+      <NowWidget className={card} onOpen={onOpen} />
       <div className="grid grid-cols-2 gap-3">
-        <button onClick={() => onOpen("experience")} className={card}>
-          <BriefcaseBusiness className="size-5 text-orange-500" aria-hidden />
-          <p className="mt-2 text-3xl font-bold tabular-nums">{profile.yearsExperience} yrs</p>
-          <p className="text-xs opacity-70">{profile.companies} companies</p>
-        </button>
-        <div className={card + " pointer-events-none"}>
-          <p className="text-xs font-semibold uppercase tracking-wide text-rose-500" suppressHydrationWarning>
-            {now?.toLocaleDateString("en-US", { weekday: "long" })}
-          </p>
-          <p className="mt-1 text-3xl font-bold tabular-nums" suppressHydrationWarning>{now?.getDate()}</p>
-          <p className="text-xs opacity-70" suppressHydrationWarning>{now?.toLocaleDateString("en-US", { month: "long", year: "numeric" })}</p>
-        </div>
+        <ExperienceWidget className={card} onOpen={onOpen} />
+        <CalendarWidget className={card} />
       </div>
-      {currentRole && (
-        <button onClick={() => onOpen("experience")} className={card}>
-          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">Now</p>
-          <p className="mt-1 font-semibold">{currentRole.roleName}</p>
-          <p className="text-sm opacity-70">{currentRole.companyName} · {currentRole.jobType}</p>
-        </button>
-      )}
+      {/* Hidden on short screens so the column never runs into the Dock */}
+      <div className="grid grid-cols-2 gap-3 [@media(max-height:800px)]:hidden">
+        <WeatherWidget />
+        <HomeClock />
+      </div>
       <ShieldWidget />
     </aside>
   );

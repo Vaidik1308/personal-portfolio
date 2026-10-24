@@ -2,14 +2,42 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight, FileText, Send } from "lucide-react";
 import { experienceData, type Experience as Exp } from "@/lib/data";
-import { isCurrentRole } from "@/lib/portfolio";
+import { isCurrentRole, profile, socials } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
 import { useOS } from "../context";
-import { Chip, GlassPill, Group, Monogram } from "./ui";
+import { Button, Chip, GlassPill, Group, Monogram } from "./ui";
 
 const dates = (e: Exp) => `${e.duration?.start ?? ""} – ${e.duration?.end ?? (isCurrentRole(e) ? "Present" : "")}`;
+
+// Lets Spotlight open Experience on a specific role, whether or not the window is already mounted
+const ROLE_EVENT = "os:show-role";
+let pendingRole: number | null = null;
+
+export function showRole(index: number) {
+  pendingRole = index;
+  window.dispatchEvent(new CustomEvent<number>(ROLE_EVENT, { detail: index }));
+}
+
+// Recruiter call to action, kept in view next to the roles
+function HireCard({ className }: { className?: string }) {
+  const { openApp } = useOS();
+  return (
+    <div className={cn("space-y-2 rounded-xl bg-sys-blue/10 p-3 ring-1 ring-sys-blue/20", className)}>
+      <p className="text-[13px] font-semibold text-sys-label">Hiring a {profile.role.toLowerCase()}?</p>
+      {profile.status && <p className="text-xs text-sys-secondary">{profile.status}</p>}
+      <div className="flex gap-2">
+        <Button href={socials.resume} external className="flex-1 whitespace-nowrap px-2 py-1.5 text-[13px]">
+          <FileText className="size-3.5" aria-hidden /> Résumé
+        </Button>
+        <Button variant="secondary" onClick={() => openApp("contact")} className="flex-1 whitespace-nowrap px-2 py-1.5 text-[13px]">
+          <Send className="size-3.5" aria-hidden /> Hire me
+        </Button>
+      </div>
+    </div>
+  );
+}
 
 function CurrentBadge() {
   return <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">Current</span>;
@@ -62,8 +90,21 @@ function Detail({ e }: { e: Exp }) {
 
 export default function Experience() {
   const { compact, setNav } = useOS();
-  const [selected, setSelected] = useState<number | null>(compact ? null : 0);
+  const [selected, setSelected] = useState<number | null>(() => {
+    const role = pendingRole;
+    pendingRole = null;
+    return role ?? (compact ? null : 0);
+  });
   const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onShow = (e: Event) => {
+      pendingRole = null;
+      setSelected((e as CustomEvent<number>).detail);
+    };
+    window.addEventListener(ROLE_EVENT, onShow);
+    return () => window.removeEventListener(ROLE_EVENT, onShow);
+  }, []);
 
   useEffect(() => {
     if (!compact) return;
@@ -95,10 +136,12 @@ export default function Experience() {
                   </button>
                 ))}
               </Group>
+              <HireCard className="mt-5" />
             </motion.div>
           ) : (
             <motion.div key="detail" initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ type: "spring", stiffness: 400, damping: 40 }} className="rounded-2xl bg-sys-card p-5">
               <Detail e={experienceData[selected]} />
+              <HireCard className="mt-6" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -109,33 +152,36 @@ export default function Experience() {
   // Mail-style split view
   return (
     <div className="flex h-full">
-      <nav aria-label="Roles" className="w-64 shrink-0 space-y-1 overflow-y-auto border-r border-black/[0.06] bg-sys-card/25 p-2 dark:border-white/10 dark:bg-sys-card/20">
-        {experienceData.map((e, i) => {
-          const active = selected === i;
-          return (
-            <button
-              key={i}
-              onClick={() => setSelected(i)}
-              aria-current={active}
-              className={cn(
-                "relative isolate flex w-full items-start gap-2.5 rounded-xl px-2.5 py-2 text-left transition-colors",
-                !active && "hover:bg-white/30 dark:hover:bg-white/5"
-              )}
-            >
-              {active && <GlassPill layoutId="experience-selection" tint className="rounded-xl" />}
-              <Monogram text={e.companyName ?? e.roleName} className="mt-0.5 size-8 text-[11px]" />
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-1.5">
-                  <span className="truncate text-sm font-semibold text-sys-label">{e.companyName}</span>
-                  {isCurrentRole(e) && <span className="size-1.5 shrink-0 rounded-full bg-emerald-500" title="Current role" />}
+      <div className="flex w-64 shrink-0 flex-col border-r border-black/[0.06] bg-sys-card/25 dark:border-white/10 dark:bg-sys-card/20">
+        <nav aria-label="Roles" className="min-h-0 flex-1 space-y-1 overflow-y-auto p-2">
+          {experienceData.map((e, i) => {
+            const active = selected === i;
+            return (
+              <button
+                key={i}
+                onClick={() => setSelected(i)}
+                aria-current={active}
+                className={cn(
+                  "relative isolate flex w-full items-start gap-2.5 rounded-xl px-2.5 py-2 text-left transition-colors",
+                  !active && "hover:bg-white/30 dark:hover:bg-white/5"
+                )}
+              >
+                {active && <GlassPill layoutId="experience-selection" tint className="rounded-xl" />}
+                <Monogram text={e.companyName ?? e.roleName} className="mt-0.5 size-8 text-[11px]" />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className="truncate text-sm font-semibold text-sys-label">{e.companyName}</span>
+                    {isCurrentRole(e) && <span className="size-1.5 shrink-0 rounded-full bg-emerald-500" title="Current role" />}
+                  </div>
+                  <p className="truncate text-xs text-sys-label/75">{e.roleName}</p>
+                  <p className="text-[11px] text-sys-secondary">{dates(e)}</p>
                 </div>
-                <p className="truncate text-xs text-sys-label/75">{e.roleName}</p>
-                <p className="text-[11px] text-sys-secondary">{dates(e)}</p>
-              </div>
-            </button>
-          );
-        })}
-      </nav>
+              </button>
+            );
+          })}
+        </nav>
+        <HireCard className="m-2 mt-0" />
+      </div>
       <div className="min-w-0 flex-1 overflow-y-auto bg-sys-card/90 p-8">
         {selected !== null && <Detail e={experienceData[selected]} />}
       </div>

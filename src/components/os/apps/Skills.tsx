@@ -13,7 +13,7 @@ import { useOS } from "../context";
 
 type Skill = { name: string; icon: React.ComponentType<{ className?: string }>; color: string };
 
-const groups: { title: string; skills: Skill[] }[] = [
+export const skillGroups: { title: string; skills: Skill[] }[] = [
   {
     title: "Languages",
     skills: [
@@ -79,7 +79,7 @@ export default function Skills() {
   const { compact } = useOS();
   return (
     <div className={cn("space-y-7 pb-10", compact ? "px-4" : "p-7")}>
-      {groups.map((g) => (
+      {skillGroups.map((g) => (
         <section key={g.title}>
           <h3 className="mb-3 px-1 text-xs font-semibold uppercase tracking-wide text-sys-secondary">{g.title}</h3>
           <ul className="grid grid-cols-[repeat(auto-fill,minmax(76px,1fr))] gap-x-2 gap-y-4">

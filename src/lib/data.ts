@@ -51,13 +51,13 @@
       roleName:"Frontend Developer Consultant",
       duration:{
         start:"Aug, 2025",
-        end:"Present"
+        end:"Oct, 2025"
       },
-      current:true,
+      current:false,
       type:"remote",
       jobType:"Part-time",
       desc:[
-        "Lead frontend development of the Meta Create product in Next.js, architecting a reusable component system adopted across the product.",
+        "Led frontend development of the Meta Create product in Next.js, architecting a reusable component system adopted across the product.",
         "Delivered interfaces for 3 client projects with a focus on performance and usability, refining design systems from user feedback.",
       ],
       skills:[
@@ -101,9 +101,9 @@
       roleName:"Frontend Developer Intern",
       duration:{
         start:"Oct, 2024",
-        end:"Present"
+        end:"May, 2025"
       },
-      current:true,
+      current:false,
       type:"remote",
       jobType:"Internship",
       desc:[

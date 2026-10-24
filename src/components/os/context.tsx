@@ -55,3 +55,10 @@ export function useIsDark() {
   }, []);
   return dark;
 }
+
+// Shortcut labels for the visitor's keyboard: ⌘/⌥ on Apple devices, Ctrl/Alt elsewhere
+export function useKeyLabels() {
+  const [apple, setApple] = useState(true);
+  useEffect(() => setApple(/Mac|iPhone|iPad/.test(navigator.userAgent)), []);
+  return apple ? { mod: "⌘", alt: "⌥" } : { mod: "Ctrl+", alt: "Alt+" };
+}

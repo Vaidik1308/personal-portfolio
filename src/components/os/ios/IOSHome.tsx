@@ -3,14 +3,16 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { BriefcaseBusiness, ChevronLeft, FileText, Moon, Sun } from "lucide-react";
-import { currentRole, profile, socials } from "@/lib/portfolio";
+import { ChevronLeft, Moon, Search, Sun } from "lucide-react";
+import { profile } from "@/lib/portfolio";
 import { useTheme } from "@/providers/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { OSContext, useIsDark, useNow, type NavOverride } from "../context";
 import { AppIcon, getApp, isAppId, linkApps, windowApps, type AnyApp, type AppId } from "../registry";
 import { appContent } from "../apps";
 import { StatusPill } from "../apps/ui";
+import { NowWidget } from "../widgets";
+import Spotlight from "../Spotlight";
 import DesktopHint from "./DesktopHint";
 
 const dockIds: AppId[] = ["about", "experience", "projects", "contact"];
@@ -34,6 +36,7 @@ function HomeIcon({ app, onOpen, showLabel = true }: { app: AnyApp; onOpen: (id:
 export default function IOSHome() {
   const [open, setOpen] = useState<AppId | null>(null);
   const [nav, setNav] = useState<NavOverride>(null);
+  const [searching, setSearching] = useState(false);
   const now = useNow();
   const dark = useIsDark();
   const { setTheme } = useTheme();
@@ -73,7 +76,7 @@ export default function IOSHome() {
   return (
     <OSContext.Provider value={ctx}>
       <div className="wallpaper fixed inset-0 overflow-hidden font-sf">
-        <main className="h-full overflow-y-auto px-5 pb-36 pt-[max(env(safe-area-inset-top),20px)]">
+        <main className="h-full overflow-y-auto px-5 pb-44 pt-[max(env(safe-area-inset-top),20px)]">
           <header className="flex items-start justify-between pb-5 pt-3">
             <div>
               <p className="text-[13px] font-semibold uppercase tracking-wide text-zinc-900/60 dark:text-white/60" suppressHydrationWarning>
@@ -97,20 +100,7 @@ export default function IOSHome() {
                 </div>
               </div>
             </button>
-            <div className="grid grid-cols-2 gap-3">
-              <button onClick={() => openApp("experience")} className={widget}>
-                <BriefcaseBusiness className="size-5 text-orange-500" aria-hidden />
-                <p className="mt-2 text-3xl font-bold tabular-nums">{profile.yearsExperience} yrs</p>
-                <p className="text-xs opacity-70">{profile.companies} companies</p>
-                {currentRole && <p className="mt-2 truncate text-xs font-semibold">Now @ {currentRole.companyName}</p>}
-              </button>
-              <a href={socials.resume} target="_blank" rel="noreferrer" className={cn(widget, "flex flex-col")}>
-                <FileText className="size-5 text-rose-500" aria-hidden />
-                <p className="mt-2 text-lg font-bold leading-tight">Résumé</p>
-                <p className="text-xs opacity-70">PDF · opens in new tab</p>
-                <span className="mt-auto pt-2 text-xs font-semibold text-sys-blue">View ↗</span>
-              </a>
-            </div>
+            <NowWidget className={cn(widget, "w-full")} onOpen={openApp} />
           </div>
 
           <div className="mt-7 grid grid-cols-4 gap-x-3 gap-y-5">
@@ -119,11 +109,24 @@ export default function IOSHome() {
           <p className="mt-8 text-center text-xs text-zinc-900/50 dark:text-white/50">Tap an app to explore</p>
         </main>
 
-        <nav aria-label="Dock" className="absolute inset-x-3 bottom-[max(env(safe-area-inset-bottom),12px)] grid grid-cols-4 rounded-[30px] bg-white/35 px-3 py-3 shadow-xl ring-1 ring-white/40 backdrop-blur-2xl backdrop-saturate-150 dark:bg-zinc-900/45 dark:ring-white/10">
-          {dockIds.map((id) => <HomeIcon key={id} app={getApp(id)} onOpen={openApp} />)}
-        </nav>
+        {/* Search pill and Dock share one container, so the pill always clears the Dock */}
+        <div className="pointer-events-none absolute inset-x-3 bottom-[max(env(safe-area-inset-bottom),12px)] flex flex-col items-center gap-3">
+          <button
+            onClick={() => setSearching(true)}
+            className="pointer-events-auto flex items-center gap-1.5 rounded-full bg-white/40 px-3.5 py-1.5 text-[13px] font-medium text-zinc-900 shadow-sm ring-1 ring-white/40 backdrop-blur-2xl active:scale-95 dark:bg-zinc-900/45 dark:text-white dark:ring-white/10"
+          >
+            <Search className="size-3.5" strokeWidth={2.6} aria-hidden /> Search
+          </button>
+          <nav aria-label="Dock" className="pointer-events-auto grid w-full grid-cols-4 rounded-[30px] bg-white/35 px-3 py-3 shadow-xl ring-1 ring-white/40 backdrop-blur-2xl backdrop-saturate-150 dark:bg-zinc-900/45 dark:ring-white/10">
+            {dockIds.map((id) => <HomeIcon key={id} app={getApp(id)} onOpen={openApp} />)}
+          </nav>
+        </div>
 
         <DesktopHint />
+
+        <AnimatePresence>
+          {searching && <Spotlight onOpen={openApp} onClose={() => setSearching(false)} />}
+        </AnimatePresence>
 
         <AnimatePresence>
           {open && <AppSheet key={open} id={open} nav={nav} onHome={goHome} />}

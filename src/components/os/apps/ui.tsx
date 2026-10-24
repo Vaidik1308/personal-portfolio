@@ -86,8 +86,8 @@ export function Row({ label, value, icon }: { label: string; value: React.ReactN
   );
 }
 
-export function Monogram({ text, className }: { text: string; className?: string }) {
-  // Deterministic tint per name so each company/project has a stable colour
+// Deterministic tint per name so each company/project has a stable colour
+export function monogramTint(text: string) {
   const tints = [
     "from-orange-400 to-rose-500",
     "from-sky-400 to-indigo-500",
@@ -97,13 +97,16 @@ export function Monogram({ text, className }: { text: string; className?: string
     "from-cyan-400 to-blue-600",
     "from-pink-400 to-rose-600",
   ];
-  const idx = text.split("").reduce((a, c) => a + c.charCodeAt(0), 0) % tints.length;
+  return tints[text.split("").reduce((a, c) => a + c.charCodeAt(0), 0) % tints.length];
+}
+
+export function Monogram({ text, className }: { text: string; className?: string }) {
   return (
     <div
       aria-hidden
       className={cn(
         "grid shrink-0 place-items-center rounded-[22%] bg-gradient-to-br font-bold text-white shadow-sm",
-        tints[idx],
+        monogramTint(text),
         className
       )}
     >

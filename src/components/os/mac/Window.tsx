@@ -162,6 +162,8 @@ export default function Window({
   return (
     <motion.section
       ref={sectionRef}
+      data-window-id={appId}
+      tabIndex={-1}
       role="dialog"
       aria-label={title}
       aria-hidden={minimized || undefined}
@@ -177,7 +179,7 @@ export default function Window({
       animate={{ left: g.left, top: g.top, width: g.w, height: g.h }}
       exit={{ opacity: 0, scale: 0.94, transition: { duration: 0.15 } }}
       transition={resizing ? { duration: 0 } : spring}
-      className={cn("absolute", minimized && "pointer-events-none")}
+      className={cn("absolute outline-none", minimized && "pointer-events-none")}
     >
       <div
         ref={bodyRef}

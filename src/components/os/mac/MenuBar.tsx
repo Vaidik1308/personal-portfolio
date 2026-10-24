@@ -5,19 +5,23 @@ import { BatteryCharging, FileText, Moon, Search, SlidersHorizontal, Sun, Wifi }
 import { useTheme } from "@/providers/ThemeProvider";
 import { profile, socials } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
-import { useIsDark, useNow } from "../context";
+import { useIsDark, useKeyLabels, useNow } from "../context";
 import { getApp, windowApps, type AppId } from "../registry";
 import { GlassPill } from "../apps/ui";
+
+export type Command = "spotlight" | "cycle" | "minimize" | "close";
 
 type Props = {
   focused: AppId | null;
   hasWindows: boolean;
   onOpen: (id: AppId) => void;
+  onCommand: (cmd: Command) => void;
   onCloseAll: () => void;
 };
 
-export default function MenuBar({ focused, hasWindows, onOpen, onCloseAll }: Props) {
+export default function MenuBar({ focused, hasWindows, onOpen, onCommand, onCloseAll }: Props) {
   const now = useNow();
+  const keys = useKeyLabels();
   const dark = useIsDark();
   const { setTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,6 +40,8 @@ export default function MenuBar({ focused, hasWindows, onOpen, onCloseAll }: Pro
     };
   }, [menuOpen]);
 
+  const menuItem = "flex w-full items-center justify-between gap-4 rounded-[5px] px-2.5 py-1 text-left hover:bg-sys-blue hover:text-white disabled:pointer-events-none disabled:opacity-40 [&:hover>span]:opacity-80";
+
   // macOS menu items: plain text, a rounded pill on hover/active
   const item = "rounded-full px-3 py-[3px] transition-colors hover:bg-black/10 dark:hover:bg-white/[0.14] focus-visible:outline-none focus-visible:bg-black/10 dark:focus-visible:bg-white/15";
 
@@ -47,7 +53,7 @@ export default function MenuBar({ focused, hasWindows, onOpen, onCloseAll }: Pro
             <span className="grid size-[17px] place-items-center rounded-full bg-zinc-900 text-[10px] font-black text-white dark:bg-white dark:text-black">V</span>
           </button>
           {menuOpen && (
-            <div role="menu" className="absolute left-0 top-7 w-60 rounded-lg bg-white/85 p-1 shadow-2xl ring-1 ring-black/10 backdrop-blur-2xl dark:bg-zinc-800/90 dark:ring-white/10">
+            <div role="menu" className="absolute left-0 top-7 w-64 rounded-lg bg-white/85 p-1 shadow-2xl ring-1 ring-black/10 backdrop-blur-2xl dark:bg-zinc-800/90 dark:ring-white/10">
               {[
                 { label: "About Vaidik", run: () => onOpen("about") },
                 { label: "Contact…", run: () => onOpen("contact") },
@@ -60,7 +66,19 @@ export default function MenuBar({ focused, hasWindows, onOpen, onCloseAll }: Pro
                 Download Résumé ↗
               </a>
               <div className="my-1 h-px bg-black/10 dark:bg-white/10" />
-              <button role="menuitem" disabled={!hasWindows} onClick={() => { onCloseAll(); setMenuOpen(false); }} className="block w-full rounded-[5px] px-2.5 py-1 text-left hover:bg-sys-blue hover:text-white disabled:pointer-events-none disabled:opacity-40">
+              {([
+                { cmd: "spotlight", label: "Spotlight Search…", keys: `${keys.mod}K` },
+                { cmd: "cycle", label: "Cycle Through Windows", keys: `${keys.alt}\``, needsWindow: true },
+                { cmd: "minimize", label: "Minimize Window", keys: `${keys.alt}M`, needsWindow: true },
+                { cmd: "close", label: "Close Window", keys: `${keys.alt}W`, needsWindow: true },
+              ] as const).map((m) => (
+                <button key={m.cmd} role="menuitem" disabled={"needsWindow" in m && !focused} onClick={() => { onCommand(m.cmd); setMenuOpen(false); }} className={menuItem}>
+                  {m.label}
+                  <span className="opacity-50">{m.keys}</span>
+                </button>
+              ))}
+              <div className="my-1 h-px bg-black/10 dark:bg-white/10" />
+              <button role="menuitem" disabled={!hasWindows} onClick={() => { onCloseAll(); setMenuOpen(false); }} className={menuItem}>
                 Close All Windows
               </button>
             </div>
@@ -79,11 +97,15 @@ export default function MenuBar({ focused, hasWindows, onOpen, onCloseAll }: Pro
         <a href={socials.resume} target="_blank" rel="noreferrer" className="mr-2 inline-flex items-center gap-1 rounded-full bg-sys-blue px-3 py-[3px] text-xs font-semibold text-white shadow-sm transition hover:brightness-110">
           <FileText className="size-3.5" aria-hidden /> Résumé
         </a>
-        {/* Status icons are decorative, like the real menu bar extras */}
+        {/* Wi-Fi, battery and Control Centre are decorative, like the real menu bar extras */}
         <span className="flex items-center gap-4 px-2" aria-hidden>
           <Wifi className="size-[17px]" strokeWidth={2.2} />
           <BatteryCharging className="size-[22px]" strokeWidth={1.8} />
+        </span>
+        <button onClick={() => onCommand("spotlight")} aria-label="Spotlight search" title={`Spotlight (${keys.mod}K)`} className={cn(item, "px-2 py-1")}>
           <Search className="size-[15px]" strokeWidth={2.4} />
+        </button>
+        <span className="flex items-center px-2" aria-hidden>
           <SlidersHorizontal className="size-[15px]" strokeWidth={2.4} />
         </span>
         <button onClick={() => setTheme(dark ? "light" : "dark")} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} title={dark ? "Light mode" : "Dark mode"} className={cn(item, "px-2 py-1")}>

@@ -5,10 +5,10 @@ import { projectsData, type Project } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useOS } from "../context";
-import { Monogram } from "./ui";
+import ProjectMockup from "./ProjectMockup";
 
 const MAX_TAGS = 4;
 
@@ -45,16 +45,13 @@ function ProjectCard({ p }: { p: Project }) {
 
   return (
     <Dialog>
-      <Card className="flex h-full flex-col rounded-2xl border-black/[0.06] bg-sys-card text-sys-label shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-white/10 dark:bg-white/[0.04]">
-        <CardHeader className="flex-row items-center gap-3 space-y-0 p-4 pb-3">
-          <Monogram text={p.org ?? p.name} className="size-10 text-sm" />
-          <div className="min-w-0 flex-1 space-y-1">
-            <div className="flex items-center gap-2">
-              <CardTitle className="truncate text-[15px]">{p.name}</CardTitle>
-              {p.status && <StatusBadge status={p.status} />}
-            </div>
-            <CardDescription className="text-xs text-sys-secondary">{[p.org, p.year].filter(Boolean).join(" · ")}</CardDescription>
-          </div>
+      <Card className="flex h-full flex-col overflow-hidden rounded-2xl border-black/[0.06] bg-sys-card text-sys-label shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-white/10 dark:bg-white/[0.04]">
+        <DialogTrigger className="block border-b border-black/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sys-blue dark:border-white/10" aria-label={`${p.name} details`}>
+          <ProjectMockup id={p.mockup} className="transition-transform duration-500 hover:scale-[1.03]" />
+        </DialogTrigger>
+        <CardHeader className="flex-row items-center gap-2 space-y-0 p-4 pb-2">
+          <CardTitle className="truncate text-base">{p.name}</CardTitle>
+          {p.status && <StatusBadge status={p.status} />}
         </CardHeader>
 
         <CardContent className="flex flex-1 flex-col gap-3 p-4 pt-0">
@@ -76,18 +73,13 @@ function ProjectCard({ p }: { p: Project }) {
         </CardFooter>
       </Card>
 
-      <DialogContent className="max-w-lg rounded-2xl border-black/10 bg-sys-card text-sys-label dark:border-white/10 max-sm:w-[calc(100%-2rem)]">
-        <DialogHeader className="flex-row items-center gap-3 space-y-0 text-left">
-          <Monogram text={p.org ?? p.name} className="size-12 text-base" />
-          <div className="min-w-0 space-y-1">
-            <div className="flex items-center gap-2">
-              <DialogTitle className="text-lg">{p.name}</DialogTitle>
-              {p.status && <StatusBadge status={p.status} />}
-            </div>
-            <DialogDescription className="text-sys-secondary">{[p.org, p.year].filter(Boolean).join(" · ")}</DialogDescription>
-          </div>
+      <DialogContent className="max-h-[90vh] max-w-xl overflow-y-auto rounded-2xl border-black/10 bg-sys-card text-sys-label dark:border-white/10 max-sm:w-[calc(100%-2rem)]">
+        <DialogHeader className="flex-row items-center gap-2 space-y-0 text-left">
+          <DialogTitle className="text-lg">{p.name}</DialogTitle>
+          {p.status && <StatusBadge status={p.status} />}
         </DialogHeader>
-        <p className="text-[15px] leading-relaxed text-sys-label/90">{p.summary}</p>
+        <ProjectMockup id={p.mockup} className="rounded-xl ring-1 ring-black/10 dark:ring-white/10" />
+        <DialogDescription className="text-[15px] leading-relaxed text-sys-label/90">{p.summary}</DialogDescription>
         <div className="space-y-2">
           <h4 className="text-xs font-semibold uppercase tracking-wide text-sys-secondary">Tech stack</h4>
           <div className="flex flex-wrap gap-1.5">
