@@ -1,28 +1,3 @@
-import { NavigationType } from "@/types";
-
-export const navigationData:NavigationType[] = [
-    {
-      label:"Home",
-      path:"/"
-    },
-    {
-      label:"About Me",
-      path:"#about"
-    },
-    {
-      label:"Experience",
-      path:"#experience"
-    },
-    {
-      label:"Skills",
-      path:"#skills"
-    },
-  ]
-
-
-
-
-
   // experience details
   export type Experience = {
     roleName:string;
@@ -42,123 +17,131 @@ export const navigationData:NavigationType[] = [
 
   export const experienceData :Experience[] = [
     {
+      roleName:"Software Developer",
+      duration:{
+        start:"Oct, 2025",
+        end:"Present"
+      },
+      current:true,
+      type:"remote",
+      jobType:"Full-Time",
+      desc:[
+        "Own features end-to-end across a Next.js/TypeScript vendor CRM and 4 Node.js microservices (MongoDB, Zod), from data model and REST API to UI.",
+        "Engineered the smart-document Services & Packages block (client-selectable services, quantities, tax mapping, dynamic invoice totals) and wired it to Stripe across 3 payment methods: card, ACH and BNPL.",
+        "Launched a block-based lead-form builder with an embeddable iframe-free widget, a referral program with branded signup pages, and custom client domains on Cloudflare and CloudFront.",
+        "Built an MCP (Model Context Protocol) server exposing CRM tools to AI assistants such as Claude, with OAuth consent, CSRF protection and stateless sessions, plus internal AI agents that automated onboarding of 8+ vendor accounts and headless end-to-end smoke tests.",
+      ],
+      skills:[
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "MongoDB",
+        "Zod",
+        "Stripe",
+        "MCP",
+        "OAuth",
+        "Cloudflare",
+        "CloudFront",
+        "Microservices",
+      ],
+      companyName:"Wedy AI"
+    },
+    {
       roleName:"Frontend Developer Consultant",
       duration:{
-        start:"August, 2025",
+        start:"Aug, 2025",
         end:"Present"
       },
       current:true,
       type:"remote",
       jobType:"Part-time",
       desc:[
-        "Led development of the Meta Create project, architecting scalable features using best-in-class engineering practices.",
-        "Enhanced overall UI consistency and user experience by refining design systems and addressing usability feedback.",
-        "Designed and implemented user interfaces for diverse client projects with Next.js, focusing on performance and usability.",
+        "Lead frontend development of the Meta Create product in Next.js, architecting a reusable component system adopted across the product.",
+        "Delivered interfaces for 3 client projects with a focus on performance and usability, refining design systems from user feedback.",
       ],
       skills:[
-        "Next Js",
-        "Tailwind CSS",
-        "Redux Toolkit",
-        "React Query",
-        "Shadcn UI",
+        "Next.js",
         "TypeScript",
-        "Postgres SQL",
-        "NestJS",  
+        "Tailwind CSS",
+        "Shadcn UI",
+        "React Query",
+        "Redux Toolkit",
       ],
       companyLink:"https://www.m0.org/",
       companyName:"M0"
     },
     {
-      roleName:"Full Stack Developer",
+      roleName:"Full Stack Developer Intern",
       duration:{
         start:"May, 2025",
-        end:"August, 2025"
-      },
-      current:true,
-      type:"remote",
-      jobType:"Internship",
-      desc:[
-        "Developing and integrating the Dashboard of the zame ai with backend",
-        "Developing the APIs for the dashboard using fastApi.",
-        "Improving the Overall UI of the zame ai.",
-        "Developing reusable components which maintains code reusability.",
-      ],
-      skills:[
-        "Next Js",
-        "Tailwind CSS",
-        "Redux Toolkit",
-        "React Query",
-        "Shadcn UI",
-        "TypeScript",
-        "Postgres SQL",
-        "Docker",
-        "FastApi",
-        "Python",
-        "Git Github",
-        "Figma",
-        "scss",
-        
-      ],
-      companyLink:"https://www.zame.ai/",
-      companyName:"Zame AI"
-    },
-    {
-      roleName:"Frontend UI Developer",
-      duration:{
-        start:"Nov, 2024",
-        
-      },
-      current:true,
-      type:"remote",
-      jobType:"Internship",
-      desc:[
-        "Developed the UI for taktys.",
-        "Utilized modern frameworks and libraries to streamline development.",
-        "Developing the modern dashboard for users.",
-        "Worked closely with backend developers to ensure seamless integration.",
-        "Developing reusable components which maintains code reusability.",
-      ],
-      skills:[
-        "Next Js",
-        "Tailwind CSS",
-        "Redux Toolkit",
-        "React Query",
-        "Shadcn UI",
-        "TypeScript",
-        "TimescaleDB",
-        "Nivo Charts",
-        "Postgres SQL",
-        "Docker"
-      ],
-      companyLink:"https://www.taktys.com/",
-      companyName:"Taktys"
-    },
-   
-    {
-      roleName:"Frontend Developer",
-      duration:{
-        start:"Aug, 2024",
-        end:"May, 2025"
+        end:"Aug, 2025"
       },
       current:false,
       type:"remote",
       jobType:"Internship",
       desc:[
-        "Implemented features like custom actions, integrations with Zapier and Slack, teams, and revamped the ChatClient UI while adding a tools section.",
-        "Enhanced user experience by developing and integrating new features to improve functionality and usability.",
-        "Collaborated with backend developers for seamless integration and built reusable components to maintain code efficiency.",
+        "Created the Zame AI dashboard in Next.js and 15+ FastAPI endpoints backing it, integrating the two end-to-end.",
+        "Overhauled the product UI with a consistent component set, replacing ad-hoc styles across every dashboard screen.",
       ],
       skills:[
-        "Next Js",
+        "Next.js",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "Docker",
+        "Tailwind CSS",
+        "Figma",
+      ],
+      companyLink:"https://www.zame.ai/",
+      companyName:"Zame AI"
+    },
+    {
+      roleName:"Frontend Developer Intern",
+      duration:{
+        start:"Oct, 2024",
+        end:"Present"
+      },
+      current:true,
+      type:"remote",
+      jobType:"Internship",
+      desc:[
+        "Implemented the UI for the new Taktys web application from design handoff, shipping its core screens and frontend features.",
+      ],
+      skills:[
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "React Query",
+        "Nivo Charts",
+        "TimescaleDB",
+      ],
+      companyLink:"https://www.taktys.com/",
+      companyName:"Taktys"
+    },
+    {
+      roleName:"Frontend Developer Intern",
+      duration:{
+        start:"Aug, 2024",
+        end:"Jan, 2025"
+      },
+      current:false,
+      type:"remote",
+      jobType:"Internship",
+      desc:[
+        "Integrated new frontend features into the ChatClient application, streamlining its key user flows.",
+      ],
+      skills:[
+        "Next.js",
         "Tailwind CSS",
         "Context API",
         "Redux Toolkit",
       ],
       companyLink:"https://www.chatclient.ai/",
-      companyName:"Chatclientai"
+      companyName:"ChatClient.ai"
     },
     {
-      roleName:"Next Js Developer",
+      roleName:"Frontend Developer Intern",
       duration:{
         start:"Apr, 2024",
         end:"Aug, 2024"
@@ -167,52 +150,46 @@ export const navigationData:NavigationType[] = [
       type:"remote",
       jobType:"Internship",
       desc:[
-        "Developed and maintained the front-end of multiple client and admin web applications at CFT Labs.",
-        "Implemented front-end features for an Admin Analytics Page, enabling efficient data visualization and user interaction.",
-        "Developing the modern dashboard for users.",
-        "Collaborated with cross-functional teams to deliver high-quality web applications within project timelines.",
+        "Maintained the frontend of 3 client and admin web applications, resolving bugs and shipping feature requests.",
+        "Designed an Admin Analytics page with interactive charts, collaborating with cross-functional teams to ship on schedule.",
       ],
       skills:[
-        "Next Js",
-        "Tailwind CSS",
-        "Redux Toolkit",
-        "ChartJs",
-        "Shadcn UI",
+        "Next.js",
         "TypeScript",
-        "Git Github",
+        "Redux Toolkit",
+        "Chart.js",
+        "Shadcn UI",
         "MongoDB",
       ],
       companyLink:"https://www.shopiq.app/",
-      companyName:"ShopIQ"
+      companyName:"CFT Labs"
     },
     {
-      roleName:"Frontend Developer",
+      roleName:"Frontend Developer Intern",
       duration:{
         start:"Jun, 2023",
-        end:"July, 2023"
+        end:"Jul, 2023"
       },
       current:false,
       type:"remote",
-      jobType:"Freelance",
+      jobType:"Internship",
       desc:[
         "Developed a portfolio website for a professor at IIT Roorkee using React.js, Tailwind CSS, and various UI libraries.",
-        "Featured sections include the professor’s achievements, work experience, and research.",
+        "Featured sections include the professor's achievements, work experience, and research.",
       ],
       skills:[
+        "React",
         "Vite",
-        "React Js",
         "Tailwind CSS",
         "TypeScript",
-        "Git Github",
       ],
-      companyLink:"https://github.com/Vaidik1308/sr-meka-web",
       companyName:"CypherTech"
     },
     {
-      roleName:"Frontend Developer",
+      roleName:"Frontend Developer Intern",
       duration:{
         start:"Feb, 2023",
-        end:"Apr, 2023",
+        end:"Apr, 2023"
       },
       current:false,
       type:"remote",
@@ -223,14 +200,12 @@ export const navigationData:NavigationType[] = [
         "Optimized website performance, enhancing load times and user experience.",
       ],
       skills:[
-        "React Js",
+        "React",
         "Tailwind CSS",
-        "Git Github",
       ],
       companyLink:"https://meraqui.com/",
-      companyName:"Meraqui"
+      companyName:"KaroStartup"
     },
-    
   ]
 
 
@@ -242,6 +217,8 @@ export const navigationData:NavigationType[] = [
     name:string;
     branch?:string;
     mains?:string;
+    years?:string;
+    cgpa?:string;
   }
 
   type Education = {
@@ -258,11 +235,13 @@ export const navigationData:NavigationType[] = [
   }
 
   export const aboutData:AboutMe = {
-    role:"Full Stack Web Developer",
+    role:"Software Developer",
     education:{
       college:{
         name:"Dayananda Sagar College of Engineering",
-        branch:"Electronics and Communication Engineering",
+        branch:"B.E. in Electronics and Communication Engineering",
+        years:"2021 – 2025",
+        cgpa:"8.1",
       },
       school:{
         name:"Dayananda Sagar College of Engineering",

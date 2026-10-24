@@ -1,12 +1,5 @@
-
-
-import HomePage from "@/components/Home";
-import Link from "next/link";
+import OS from "@/components/os/OS";
 
 export default function Home() {
-  return (
-    <main className="flex w-full flex-col">
-      <HomePage/>
-    </main>
-  );
+  return <OS />;
 }
