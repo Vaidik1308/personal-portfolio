@@ -47,7 +47,7 @@ export default function MenuBar({ focused, hasWindows, onOpen, onCommand, onClos
 
   return (
     <header className="relative z-[9500] flex h-8 shrink-0 select-none items-center justify-between bg-white/45 px-2.5 text-[13.5px] text-zinc-900 backdrop-blur-2xl backdrop-saturate-150 dark:bg-black/85 dark:text-white/95">
-      <nav aria-label="Main" className="flex items-center gap-0.5">
+      <nav aria-label="Main" className="flex min-w-0 items-center gap-0.5">
         <div ref={menuRef} className="relative">
           <button onClick={() => setMenuOpen((o) => !o)} aria-expanded={menuOpen} aria-haspopup="menu" aria-label={`${profile.shortName} menu`} className={cn(item, "flex items-center px-2.5", menuOpen && "bg-black/10 dark:bg-white/15")}>
             <span className="grid size-[17px] place-items-center rounded-full bg-zinc-900 text-[10px] font-black text-white dark:bg-white dark:text-black">V</span>
@@ -93,26 +93,32 @@ export default function MenuBar({ focused, hasWindows, onOpen, onCommand, onClos
         ))}
       </nav>
 
-      <div className="flex items-center gap-0.5">
+      <div className="flex shrink-0 items-center gap-0.5">
         <a href={socials.resume} target="_blank" rel="noreferrer" className="mr-2 inline-flex items-center gap-1 rounded-full bg-sys-blue px-3 py-[3px] text-xs font-semibold text-white shadow-sm transition hover:brightness-110">
           <FileText className="size-3.5" aria-hidden /> Résumé
         </a>
         {/* Wi-Fi, battery and Control Centre are decorative, like the real menu bar extras */}
-        <span className="flex items-center gap-4 px-2" aria-hidden>
+        <span className="flex items-center gap-4 px-2 max-lg:hidden" aria-hidden>
           <Wifi className="size-[17px]" strokeWidth={2.2} />
           <BatteryCharging className="size-[22px]" strokeWidth={1.8} />
         </span>
         <button onClick={() => onCommand("spotlight")} aria-label="Spotlight search" title={`Spotlight (${keys.mod}K)`} className={cn(item, "px-2 py-1")}>
           <Search className="size-[15px]" strokeWidth={2.4} />
         </button>
-        <span className="flex items-center px-2" aria-hidden>
+        <span className="flex items-center px-2 max-lg:hidden" aria-hidden>
           <SlidersHorizontal className="size-[15px]" strokeWidth={2.4} />
         </span>
         <button onClick={() => setTheme(dark ? "light" : "dark")} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} title={dark ? "Light mode" : "Dark mode"} className={cn(item, "px-2 py-1")}>
           {dark ? <Sun className="size-[15px]" strokeWidth={2.4} /> : <Moon className="size-[15px]" strokeWidth={2.4} />}
         </button>
-        <time className="px-2 tabular-nums" suppressHydrationWarning>
-          {now && `${now.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }).replace(",", "")}\u00a0\u00a0${now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })}`}
+        {/* Date drops on narrower windows so the clock never wraps */}
+        <time className="whitespace-nowrap px-2 tabular-nums" suppressHydrationWarning>
+          {now && (
+            <>
+              <span className="max-lg:hidden">{now.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }).replace(",", "")}{"\u00a0\u00a0"}</span>
+              {now.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })}
+            </>
+          )}
         </time>
       </div>
     </header>
