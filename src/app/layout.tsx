@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import { profile, socials } from "@/lib/portfolio";
+import { currentRole, profile, socials } from "@/lib/portfolio";
+import { aboutData } from "@/lib/data";
+import { siteUrl } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vaidikportfolio.vercel.app";
-const title = `${profile.name} | ${profile.role}`;
+const title = `${profile.name} | ${profile.role} (Next.js, TypeScript, Node.js)`;
 const description = `${profile.role} with ${profile.yearsExperience} years of experience across ${profile.companies} companies, building production web apps in Next.js, TypeScript, Node.js and MongoDB. Explore my experience, projects, skills and résumé.`;
 
 export const metadata: Metadata = {
@@ -45,23 +46,55 @@ export const metadata: Metadata = {
     description,
     creator: "@kriishnaa_13",
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  // Set in Vercel after adding the site to Google Search Console (HTML tag method)
+  verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
   formatDetection: { telephone: false },
 };
 
 // Structured data so search engines can show a rich profile result
-const personJsonLd = {
+const personId = `${siteUrl}/#person`;
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
-  jobTitle: profile.role,
-  url: siteUrl,
-  image: `${siteUrl}/avatar.png`,
-  email: `mailto:${socials.email}`,
-  address: { "@type": "PostalAddress", addressLocality: "Bengaluru", addressRegion: "Karnataka", addressCountry: "IN" },
-  alumniOf: { "@type": "CollegeOrUniversity", name: "Dayananda Sagar College of Engineering" },
-  knowsAbout: ["Next.js", "React", "TypeScript", "Node.js", "MongoDB", "NestJS", "FastAPI", "Stripe", "Model Context Protocol"],
-  sameAs: [socials.github, socials.linkedin, socials.x],
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: `${profile.name} Portfolio`,
+      inLanguage: "en",
+      publisher: { "@id": personId },
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${siteUrl}/#profilepage`,
+      url: siteUrl,
+      name: title,
+      description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      mainEntity: { "@id": personId },
+    },
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: profile.name,
+      alternateName: profile.shortName,
+      jobTitle: profile.role,
+      description: profile.bio,
+      url: siteUrl,
+      image: `${siteUrl}/avatar.png`,
+      email: `mailto:${socials.email}`,
+      ...(currentRole && { worksFor: { "@type": "Organization", name: currentRole.companyName } }),
+      address: { "@type": "PostalAddress", addressLocality: "Bengaluru", addressRegion: "Karnataka", addressCountry: "IN" },
+      alumniOf: { "@type": "CollegeOrUniversity", name: aboutData.education.college.name },
+      knowsAbout: ["Next.js", "React", "TypeScript", "Node.js", "MongoDB", "NestJS", "FastAPI", "Stripe", "Model Context Protocol"],
+      sameAs: [socials.github, socials.linkedin, socials.x],
+    },
+  ],
 };
 
 export const viewport: Viewport = {
@@ -86,7 +119,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className="font-sf antialiased bg-background text-foreground w-full flex flex-col h-[100dvh] overflow-hidden">
         <ThemeProvider defaultTheme="dark">
