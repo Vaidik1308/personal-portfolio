@@ -6,7 +6,7 @@ export const socials = {
   linkedin: "https://www.linkedin.com/in/vaidik-singh-nirwan-b837351b2/",
   x: "https://x.com/kriishnaa_13",
   resume:
-    "https://drive.google.com/file/d/1Gy0WApjqkJ2L3o0Jv6QfUkt2pWxSwizG/view?usp=drive_link",
+    "https://drive.google.com/file/d/17OO4GOEfpJt9KZQaWFEH_8Nqh2OcxMBh/view?usp=sharing",
 };
 
 // Counted from the Experience list so the number never drifts from it
